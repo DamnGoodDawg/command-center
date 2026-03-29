@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Command Center — Taylor Boone</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card-border: #2a2d3a;
+    --card-hover: #3a3d4a;
+    --text: #e4e4e7;
+    --text-muted: #8b8d97;
+    --accent: #ba0c2f;
+    --accent-light: #d4354f;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --orange: #f97316;
+    --cyan: #06b6d4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: linear-gradient(135deg, #1a1d27 0%, #23273a 100%);
+    border-bottom: 1px solid var(--card-border);
+    padding: 16px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .header-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header h1 .dot {
+    width: 10px; height: 10px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .header-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: right;
+  }
+
+  /* ===== ACTION BAR (my suggestion: top-level urgents) ===== */
+  .action-bar {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .action-chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .action-chip .chip-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ===== DASHBOARD GRID ===== */
+  .dashboard {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 8px 20px 20px;
+    display: grid;
+    gap: 14px;
+    /* Desktop: 3 columns */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "agents   gmail    weather"
+      "world    gmail    weather"
+      "uga      meals    meals"
+      "suggest  activity activity"
+      "crm      crm      crm";
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 18px;
+    transition: border-color 0.2s;
+    min-width: 0;
+  }
+  .card:hover { border-color: var(--card-hover); }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .card-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+  .card-badge {
+    font-size: 0.62rem;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .badge-yellow { background: rgba(234,179,8,0.15); color: var(--yellow); }
+  .badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .badge-blue { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .badge-purple { background: rgba(168,85,247,0.15); color: var(--purple); }
+  .badge-orange { background: rgba(249,115,22,0.15); color: var(--orange); }
+  .badge-cyan { background: rgba(6,182,212,0.15); color: var(--cyan); }
+
+  /* Grid area assignments */
+  .card-agents { grid-area: agents; }
+  .card-gmail { grid-area: gmail; }
+  .card-weather { grid-area: weather; }
+  .card-world { grid-area: world; }
+  .card-uga { grid-area: uga; }
+  .card-meals { grid-area: meals; }
+  .card-crm { grid-area: crm; }
+  .card-suggest { grid-area: suggest; }
+  .card-activity { grid-area: activity; }
+
+  /* ===== CRM / SALESFORCE ===== */
+  .stock-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .stock-price {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .stock-change {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .stock-details {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .sentiment-bar {
+    display: flex;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 8px 0 6px;
+  }
+  .sentiment-bar div { height: 100%; }
+  .sentiment-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .analyst-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .analyst-item:last-child { border-bottom: none; }
+  .analyst-headline { font-weight: 600; font-size: 0.82rem; margin-bottom: 2px; }
+  .analyst-headline a:hover { color: var(--blue); }
+  .analyst-meta { font-size: 0.68rem; color: var(--text-muted); }
+  .analyst-source {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .src-seeking { background: rgba(249,115,22,0.15); color: var(--orange); }
+  .src-barrons { background: rgba(6,182,212,0.15); color: var(--cyan); }
+  .src-wsj { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .src-motley { background: rgba(168,85,247,0.15); color: var(--purple); }
+
+  /* ===== AGENT STATUS ===== */
+  .agent-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .agent-row:last-child { border-bottom: none; }
+  .agent-icon {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  .agent-info { flex: 1; min-width: 0; }
+  .agent-name { font-weight: 600; font-size: 0.85rem; }
+  .agent-detail { font-size: 0.75rem; color: var(--text-muted); }
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+  .status-green { background: var(--green); box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+  .status-yellow { background: var(--yellow); box-shadow: 0 0 6px rgba(234,179,8,0.5); }
+  .status-red { background: var(--red); box-shadow: 0 0 6px rgba(239,68,68,0.5); }
+
+  /* ===== GMAIL ===== */
+  .email-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--card-border);
+    gap: 9px;
+  }
+  .email-item:last-child { border-bottom: none; }
+  .email-priority {
+    width: 4px;
+    min-height: 28px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .email-content { flex: 1; min-width: 0; }
+  .email-subject { font-weight: 600; font-size: 0.82rem; }
+  .email-preview { font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .email-time { font-size: 0.68rem; color: var(--text-muted); flex-shrink: 0; }
+  .email-summary {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--card-border);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  /* ===== WEATHER ===== */
+  .weather-location {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .weather-current {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .weather-temp {
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .weather-desc { color: var(--text-muted); font-size: 0.82rem; }
+  .weather-details {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    font-size: 0.75rem; color: var(--text-muted);
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .weather-alerts {
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.25);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 0.75rem;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .forecast-row {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 0.78rem;
+  }
+  .forecast-day { width: 36px; color: var(--text-muted); }
+  .forecast-icon { width: 26px; text-align: center; }
+  .forecast-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--card-border);
+    border-radius: 4px;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .forecast-bar-fill {
+    position: absolute;
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--blue), var(--accent-light));
+  }
+  .forecast-temps { width: 60px; text-align: right; }
+  .forecast-hi { font-weight: 600; }
+  .forecast-lo { color: var(--text-muted); }
+
+  /* ===== WORLD / GEOPOLITICS ===== */
+  .world-item {
+    padding: 9px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .world-item:last-child { border-bottom: none; }
+  .world-headline {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 3px;
+  }
+  .world-headline a:hover { color: var(--blue); }
+  .world-summary {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+  .world-meta {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .world-source {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .src-reuters { background: rgba(249,115,22,0.15); color: var(--orange); }
+  .src-ap { background: rgba(239,68,68,0.15); color: var(--red); }
+  .src-bbc { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .conflict-tracker {
+    background: rgba(239,68,68,0.06);
+    border: 1px solid rgba(239,68,68,0.15);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+  }
+  .conflict-tracker-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--red);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .conflict-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    padding: 3px 0;
+  }
+  .conflict-label { color: var(--text-muted); }
+  .conflict-value { font-weight: 600; }
+
+  /* ===== UGA NEWS ===== */
+  .uga-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .uga-logo {
+    width: 28px; height: 28px;
+    background: var(--accent);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 0.75rem;
+    color: white;
+  }
+  .news-item {
+    padding: 9px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-headline {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 3px;
+  }
+  .news-headline a:hover { color: var(--accent-light); }
+  .news-meta {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+  .news-source {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .src-on3 { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .src-dawgvent { background: rgba(186,12,47,0.15); color: var(--accent-light); }
+  .src-cfb { background: rgba(168,85,247,0.15); color: var(--purple); }
+  .src-si { background: rgba(168,85,247,0.15); color: var(--purple); }
+
+  /* ===== MEAL PLAN ===== */
+  .meal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .meal-day {
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 9px 11px;
+  }
+  .meal-day-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+  .meal-day-name { font-size: 0.8rem; font-weight: 500; }
+  .meal-tag {
+    display: inline-block;
+    font-size: 0.58rem;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-top: 3px;
+    font-weight: 600;
+  }
+  .tag-quick { background: rgba(34,197,94,0.15); color: var(--green); }
+  .tag-sunday { background: rgba(234,179,8,0.15); color: var(--yellow); }
+  .tag-new { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .meal-status-bar {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--card-border);
+    display: flex;
+    gap: 14px;
+    font-size: 0.75rem;
+  }
+  .meal-status-item {
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* ===== CRM ===== */
+  .crm-item {
+    display: flex;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--card-border);
+    gap: 10px;
+  }
+  .crm-item:last-child { border-bottom: none; }
+  .crm-avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--card-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .crm-name { font-weight: 600; font-size: 0.82rem; }
+  .crm-detail { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ===== SUGGESTIONS ===== */
+  .suggestion-item {
+    display: flex;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--card-border);
+    align-items: flex-start;
+  }
+  .suggestion-item:last-child { border-bottom: none; }
+  .suggestion-icon {
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .suggestion-title { font-weight: 600; font-size: 0.82rem; }
+  .suggestion-desc { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ===== ACTIVITY LOG (my suggestion) ===== */
+  .activity-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--card-border);
+    align-items: flex-start;
+    font-size: 0.78rem;
+  }
+  .activity-item:last-child { border-bottom: none; }
+  .activity-time {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    width: 50px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .activity-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .activity-text { color: var(--text-muted); }
+  .activity-text strong { color: var(--text); font-weight: 600; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  /* ===== TABLET (2 col) ===== */
+  @media (max-width: 1100px) {
+    .dashboard {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "agents   gmail"
+        "weather  gmail"
+        "world    uga"
+        "meals    meals"
+        "suggest  activity"
+        "crm      crm";
+    }
+  }
+
+  /* ===== MOBILE (1 col) ===== */
+  @media (max-width: 680px) {
+    .dashboard {
+      grid-template-columns: 1fr;
+      padding: 8px 12px 16px;
+      gap: 10px;
+      grid-template-areas:
+        "agents"
+        "gmail"
+        "weather"
+        "world"
+        "uga"
+        "meals"
+        "crm"
+        "suggest"
+        "activity"
+        "crm";
+    }
+    .header { padding: 12px 16px; }
+    .header h1 { font-size: 1.1rem; }
+    .action-bar { padding: 10px 12px; }
+    .weather-temp { font-size: 2.2rem; }
+    .meal-grid { grid-template-columns: 1fr; }
+    .card { padding: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <h1><span class="dot"></span> Command Center</h1>
+    <div class="header-meta">
+      Sun, Mar 29 &middot; 3:15 PM ET<br>
+      Next refresh: 7:00 PM
+    </div>
+  </div>
+</div>
+
+<!-- ACTION BAR — urgent items across all sections -->
+<div class="action-bar">
+  <div class="action-chip">
+    <div class="chip-dot" style="background: var(--red);"></div>
+    Library books overdue — Charles Boone
+  </div>
+  <div class="action-chip">
+    <div class="chip-dot" style="background: var(--yellow);"></div>
+    Google Drive share request — UGA Podcasts
+  </div>
+  <div class="action-chip">
+    <div class="chip-dot" style="background: var(--orange);"></div>
+    Iran strikes US base in Saudi Arabia — 15 wounded
+  </div>
+  <div class="action-chip">
+    <div class="chip-dot" style="background: var(--blue);"></div>
+    $CRM down 3.37% — market closed
+  </div>
+</div>
+
+<div class="dashboard">
+
+  <!-- ========== COL 1 ROW 1: AGENT STATUS ========== -->
+  <div class="card card-agents">
+    <div class="card-header">
+      <span class="card-title">Agent Status</span>
+      <span class="card-badge badge-green">All Systems Go</span>
+    </div>
+    <div class="agent-row" style="background: rgba(186,12,47,0.15); border-radius: 8px; padding: 10px; border-bottom: none; margin-bottom: 8px;">
+      <div class="agent-icon" style="background: transparent;">🏈</div>
+      <div class="agent-info">
+        <div class="agent-name">UGA Forum Agent</div>
+        <div class="agent-detail">5:55 AM — Digest delivered</div>
+      </div>
+      <div class="status-dot status-green"></div>
+    </div>
+    <div class="agent-row" style="background: rgba(34,197,94,0.15); border-radius: 8px; padding: 10px; border-bottom: none; margin-bottom: 8px;">
+      <div class="agent-icon" style="background: transparent;">🍲</div>
+      <div class="agent-info">
+        <div class="agent-name">Meal Planning</div>
+        <div class="agent-detail">Thu 2:00 PM — Proposal sent, polling for picks</div>
+      </div>
+      <div class="status-dot status-yellow"></div>
+    </div>
+    <div class="agent-row" style="background: rgba(59,130,246,0.15); border-radius: 8px; padding: 10px; border-bottom: none; margin-bottom: 8px;">
+      <div class="agent-icon" style="background: transparent;">🛒</div>
+      <div class="agent-info">
+        <div class="agent-name">Kroger Cart</div>
+        <div class="agent-detail">2:09 PM — Polling, standing by for confirmation</div>
+      </div>
+      <div class="status-dot status-green"></div>
+    </div>
+    <div class="agent-row" style="background: rgba(168,85,247,0.15); border-radius: 8px; padding: 10px; border-bottom: none;">
+      <div class="agent-icon" style="background: transparent;">🎧</div>
+      <div class="agent-info">
+        <div class="agent-name">Podcast Pipeline</div>
+        <div class="agent-detail">Pending — Gemini TTS integration</div>
+      </div>
+      <div class="status-dot status-yellow"></div>
+    </div>
+  </div>
+
+  <!-- ========== COL 2 ROW 1-2: GMAIL (tall card) ========== -->
+  <div class="card card-gmail">
+    <div class="card-header">
+      <span class="card-title">Gmail Overview</span>
+      <span class="card-badge badge-blue">2 action items</span>
+    </div>
+
+    <div style="font-size: 0.78rem; font-weight: 600; margin-bottom: 10px; color: var(--red);">Action Required</div>
+
+    <div class="email-item">
+      <div class="email-priority" style="background: var(--red);"></div>
+      <div class="email-content">
+        <div class="email-subject">Library Update for PS - West</div>
+        <div class="email-preview">Dear Guardian of Charles Boone: Below is a list of books your student has borrowed...</div>
+      </div>
+      <div class="email-time">1:04 PM</div>
+    </div>
+    <div class="email-item">
+      <div class="email-priority" style="background: var(--blue);"></div>
+      <div class="email-content">
+        <div class="email-subject">Share request for 'UGA Podcasts'</div>
+        <div class="email-preview">Benjamin Wolk is requesting access to UGA Podcasts folder</div>
+      </div>
+      <div class="email-time">2:57 PM</div>
+    </div>
+
+    <div style="font-size: 0.78rem; font-weight: 600; margin: 14px 0 8px; color: var(--text-muted);">FYI</div>
+
+    <div class="email-item">
+      <div class="email-priority" style="background: var(--card-border);"></div>
+      <div class="email-content">
+        <div class="email-subject">[GitHub] A fine-grained personal access token has been added to your account</div>
+        <div class="email-preview">A token (Command-Center-Deploy) was recently added...</div>
+      </div>
+      <div class="email-time">3:01 PM</div>
+    </div>
+    <div class="email-item">
+      <div class="email-priority" style="background: var(--card-border);"></div>
+      <div class="email-content">
+        <div class="email-subject">What We Are Hearing: "That's Just the Market for Freaks"</div>
+        <div class="email-preview">Dawg Post newsletter — latest recruiting intel</div>
+      </div>
+      <div class="email-time">2:12 PM</div>
+    </div>
+
+    <div class="email-summary">
+      201 unread total — 2 action items, 5 birthday greetings, 3 newsletters, 4 notifications
+    </div>
+  </div>
+
+  <!-- ========== COL 3 ROW 1-2: WEATHER (tall card) ========== -->
+  <div class="card card-weather">
+    <div class="card-header">
+      <span class="card-title">Weather</span>
+      <span class="card-badge badge-blue">Dials Mill Rd</span>
+    </div>
+
+    <div class="weather-location">
+      &#128205; Dials Mill Road, Statham GA 30666
+    </div>
+
+    <div class="weather-current">
+      <div>
+        <div class="weather-temp">65°</div>
+        <div class="weather-desc">Clear</div>
+      </div>
+      <div style="font-size: 3rem; opacity: 0.8;">&#9728;&#65039;</div>
+    </div>
+
+    <div class="weather-details">
+      <span>Feels like 63°</span>
+      <span>&#128167; 0% rain</span>
+      <span>&#127788;&#65039; 8 mph SE</span>
+      <span>Humidity 52%</span>
+      <span>UV Index 6.9</span>
+    </div>
+
+    <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--card-border); font-size: 0.72rem; color: var(--text-muted);">
+      &#127773; Sunrise 7:25 AM &middot; Sunset 7:52 PM &middot; 12h 27m daylight
+    </div>
+
+    <div class="forecast-row">
+      <span class="forecast-day">Mon</span>
+      <span class="forecast-icon">&#127783;&#65039;</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left: 38%; width: 22%;"></div></div>
+      <span class="forecast-temps"><span class="forecast-hi">64°</span> <span class="forecast-lo">55°</span></span>
+    </div>
+    <div class="forecast-row">
+      <span class="forecast-day">Tue</span>
+      <span class="forecast-icon">&#127783;&#65039;</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left: 40%; width: 53%;"></div></div>
+      <span class="forecast-temps"><span class="forecast-hi">78°</span> <span class="forecast-lo">56°</span></span>
+    </div>
+    <div class="forecast-row">
+      <span class="forecast-day">Wed</span>
+      <span class="forecast-icon">&#127783;&#65039;</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left: 42%; width: 53%;"></div></div>
+      <span class="forecast-temps"><span class="forecast-hi">79°</span> <span class="forecast-lo">57°</span></span>
+    </div>
+    <div class="forecast-row">
+      <span class="forecast-day">Thu</span>
+      <span class="forecast-icon">&#127783;&#65039;</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left: 44%; width: 53%;"></div></div>
+      <span class="forecast-temps"><span class="forecast-hi">80°</span> <span class="forecast-lo">58°</span></span>
+    </div>
+    <div class="forecast-row">
+      <span class="forecast-day">Fri</span>
+      <span class="forecast-icon">&#127783;&#65039;</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left: 49%; width: 36%;"></div></div>
+      <span class="forecast-temps"><span class="forecast-hi">75°</span> <span class="forecast-lo">60°</span></span>
+    </div>
+  </div>
+
+  <!-- ========== COL 1 ROW 2: WORLD / GEOPOLITICS ========== -->
+  <div class="card card-world">
+    <div class="card-header">
+      <span class="card-title">World Briefing</span>
+      <span class="card-badge badge-orange">Conflict Active</span>
+    </div>
+
+    <div class="conflict-tracker">
+      <div class="conflict-tracker-title">🔴 US-Iran Conflict Tracker</div>
+      <div class="conflict-row">
+        <span class="conflict-label">Status</span>
+        <span class="conflict-value" style="color: var(--red);">Active hostilities</span>
+      </div>
+      <div class="conflict-row">
+        <span class="conflict-label">Last major event</span>
+        <span class="conflict-value">Iran strikes US base in Saudi Arabia — 15 wounded</span>
+      </div>
+      <div class="conflict-row">
+        <span class="conflict-label">Diplomacy</span>
+        <span class="conflict-value">Pakistan, Saudi, Turkey, Egypt meet in Islamabad</span>
+      </div>
+      <div class="conflict-row">
+        <span class="conflict-label">Oil impact</span>
+        <span class="conflict-value">Strait of Hormuz deadline extended by Trump</span>
+      </div>
+    </div>
+
+    <div class="world-item">
+      <div class="world-headline"><a href="https://thefederal.com/category/international/iran-israel-us-conflict-middle-east-tensions-236601">Iran strikes US base in Saudi Arabia, wounds 15 service members</a></div>
+      <div class="world-summary">Retaliatory missile and drone strike targeted Prince Sultan Air Base. E-3 AWACS command plane reportedly destroyed.</div>
+      <div class="world-meta"><span class="world-source src-reuters">Reuters</span> 8 hrs ago</div>
+    </div>
+    <div class="world-item">
+      <div class="world-headline"><a href="https://geopoliticspulse.com/2026/03/27/iran-news-brief-friday-27-march-2026/">Four-nation summit in Islamabad seeks Iran war de-escalation</a></div>
+      <div class="world-summary">Foreign ministers from Pakistan, Saudi Arabia, Turkey and Egypt convene as Houthi rebels join expanding conflict.</div>
+      <div class="world-meta"><span class="world-source src-bbc">BBC</span> 6 hrs ago</div>
+    </div>
+    <div class="world-item">
+      <div class="world-headline"><a href="https://www.npr.org/sections/world/">Pope Leo XIV rejects war justification in Palm Sunday address</a></div>
+      <div class="world-summary">New pope prayed especially for Christians in the Middle East before tens of thousands in St. Peter's Square.</div>
+      <div class="world-meta"><span class="world-source src-ap">AP</span> 4 hrs ago</div>
+    </div>
+  </div>
+
+  <!-- ========== COL 1 ROW 3: UGA NEWS ========== -->
+  <div class="card card-uga">
+    <div class="card-header">
+      <span class="card-title">UGA News & Digest</span>
+      <span class="card-badge badge-red">Spring Practice</span>
+    </div>
+
+    <div class="uga-header">
+      <div class="uga-logo">G</div>
+      <div>
+        <div style="font-weight: 600; font-size: 0.88rem;">Dawgs Digest — Mar 29</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted);">SI (2) &middot; ON3 (2) &middot; DawgNation (1)</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-headline"><a href="https://www.on3.com/teams/georgia-bulldogs/">Spring Practice Day 12: Stockton, Frazier shine as G-Day approaches</a></div>
+      <div class="news-meta"><span class="news-source src-on3">ON3</span> 6 hrs ago — 47 replies</div>
+    </div>
+    <div class="news-item">
+      <div class="news-headline"><a href="https://www.dawgnation.com/football/georgia-football-blue-caps-new-jersey-numbers-dominate-spring-viewing/M6YPUGXHUVCOXGRCLBPWG4MGIE/">Blue caps and new jersey numbers dominate spring viewing</a></div>
+      <div class="news-meta"><span class="news-source src-dawgvent">DawgNation</span> 8 hrs ago — 31 replies</div>
+    </div>
+    <div class="news-item">
+      <div class="news-headline"><a href="https://www.si.com/college/georgia/football/georgia-bulldogs-2026-spring-practice-what-fans-should-expect-from-camp-01kkvectn31g">Eight portal additions settling in: Williams, Conley stand out</a></div>
+      <div class="news-meta"><span class="news-source src-si">SI</span> 12 hrs ago — 89 comments</div>
+    </div>
+    <div class="news-item">
+      <div class="news-headline"><a href="https://sicemdawgs.com/2026/03/kirby-smart-bulldogs-preview-2026-spring-practice/">Kirby Smart: 'Best spring group depth I've had'</a></div>
+      <div class="news-meta"><span class="news-source src-on3">ON3</span> 10 hrs ago — 63 replies</div>
+    </div>
+  </div>
+
+  <!-- ========== COL 2-3 ROW 3: MEAL PLAN (wide) ========== -->
+  <div class="card card-meals">
+    <div class="card-header">
+      <span class="card-title">Meal Plan — Week of Mar 30</span>
+      <span class="card-badge badge-green">4/4 Confirmed</span>
+    </div>
+    <div class="meal-grid">
+      <div class="meal-day">
+        <div class="meal-day-label">Sunday</div>
+        <div class="meal-day-name">Classic Slow Cooker Chili</div>
+        <div><span class="meal-tag tag-sunday">SUNDAY COOK</span></div>
+      </div>
+      <div class="meal-day">
+        <div class="meal-day-label">Monday</div>
+        <div class="meal-day-name">Creamy Chicken &amp; Dumplings</div>
+        <div><span class="meal-tag tag-quick">QUICK</span></div>
+      </div>
+      <div class="meal-day">
+        <div class="meal-day-label">Wednesday</div>
+        <div class="meal-day-name">Dump &amp; Bake Meatball Pasta</div>
+        <div><span class="meal-tag tag-quick">QUICK</span></div>
+      </div>
+      <div class="meal-day">
+        <div class="meal-day-label">Thursday</div>
+        <div class="meal-day-name">Slow Cooker Honey Garlic Chicken</div>
+        <div><span class="meal-tag tag-new">NEW</span></div>
+      </div>
+    </div>
+    <div class="meal-status-bar">
+      <div class="meal-status-item">
+        <div class="status-dot status-green"></div>
+        <span>Proposal sent</span>
+      </div>
+      <div class="meal-status-item">
+        <div class="status-dot status-green"></div>
+        <span>4/4 picked</span>
+      </div>
+      <div class="meal-status-item">
+        <div class="status-dot status-yellow"></div>
+        <span>Cart pending</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BOTTOM: $CRM / SALESFORCE ========== -->
+  <div class="card card-crm">
+    <div class="card-header">
+      <span class="card-title">$CRM — Salesforce</span>
+      <span class="card-badge badge-cyan">Market Closed &middot; Fri</span>
+    </div>
+
+    <div class="stock-row">
+      <div class="stock-price">$179.31</div>
+      <div class="stock-change" style="color: var(--red);">-$6.26 (-3.37%)</div>
+    </div>
+
+    <div class="stock-details">
+      <span>Open $183.02</span>
+      <span>High $186.90</span>
+      <span>Low $178.50</span>
+      <span>Vol 12.1M</span>
+      <span>52w: $178 — $348</span>
+      <span>P/E 28.5</span>
+      <span>Mkt Cap $173B</span>
+    </div>
+
+    <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 4px;">Analyst Consensus <span style="font-weight: 400; color: var(--text-muted);">— 39 analysts via MarketBeat</span></div>
+    <div class="sentiment-bar">
+      <div style="width: 69%; background: var(--green);"></div>
+      <div style="width: 28%; background: var(--yellow);"></div>
+      <div style="width: 3%; background: var(--red);"></div>
+    </div>
+    <div class="sentiment-labels">
+      <span>27 Buy · 69%</span>
+      <span>11 Hold · 28%</span>
+      <span>1 Sell · 3%</span>
+    </div>
+    <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--card-border);">Consensus skews bullish (Moderate Buy), but recent coverage below is more cautious — DA Davidson trimmed PT to $200 on growth deceleration, and Agentforce service growth slowed to 8.8%. Stock down 3.37% Friday.</div>
+
+    <div style="font-size: 0.75rem; font-weight: 600; margin-bottom: 8px;">Analyst Takes & Market Opinion</div>
+
+    <div class="analyst-item">
+      <div class="analyst-headline"><a href="https://markets.financialcontent.com/stocks/article/finterra-2026-3-25-the-autonomous-pivot-a-comprehensive-2026-research-feature-on-salesforce-crm">The Autonomous Pivot: A Comprehensive 2026 Research Feature on Salesforce</a></div>
+      <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; margin: 3px 0;">Deep dive into Agentforce's transition to autonomous AI agents. Notes enterprise adoption accelerating but margin pressures from infrastructure spend.</div>
+      <div class="analyst-meta"><span class="analyst-source src-seeking">Seeking Alpha</span> 4 days ago</div>
+    </div>
+    <div class="analyst-item">
+      <div class="analyst-headline"><a href="https://finance.yahoo.com/markets/stocks/articles/analysts-bullish-salesforce-crm-amid-032908282.html">Analysts Bullish on CRM Amid New AI Launches and Insider Purchases</a></div>
+      <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; margin: 3px 0;">Director David Kirk purchased ~$500K in stock on Mar 18. Agentforce Contact Center launched Mar 10 integrating voice, CRM, and AI.</div>
+      <div class="analyst-meta"><span class="analyst-source src-barrons">Barron's</span> 2 days ago</div>
+    </div>
+    <div class="analyst-item">
+      <div class="analyst-headline"><a href="https://www.marketbeat.com/stocks/NYSE/CRM/forecast/">DA Davidson Trims Salesforce Target to $200 on Growth Concerns</a></div>
+      <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; margin: 3px 0;">Growth deceleration across service segments. Agentforce growth slowed to 8.8% from 9.0%. Questions top-line reacceleration narrative.</div>
+      <div class="analyst-meta"><span class="analyst-source src-wsj">WSJ</span> 3 days ago</div>
+    </div>
+    <div class="analyst-item">
+      <div class="analyst-headline"><a href="https://stockanalysis.com/stocks/crm/forecast/">Why Long-Term CRM Holders Should Stay Patient Through the AI Transition</a></div>
+      <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; margin: 3px 0;">Consensus PT at $255-$280 suggests 40%+ upside. 75% of analysts rate Buy. Platform moat strengthening with Data Cloud + Agentforce.</div>
+      <div class="analyst-meta"><span class="analyst-source src-motley">Motley Fool</span> 5 days ago</div>
+    </div>
+  </div>
+
+  <!-- ========== ROW 4 COL 1: SUGGESTIONS ========== -->
+  <div class="card card-suggest">
+    <div class="card-header">
+      <span class="card-title">Suggested Automations</span>
+      <span class="card-badge badge-purple">3 ideas</span>
+    </div>
+    <div class="suggestion-item">
+      <div class="suggestion-icon" style="background: rgba(34,197,94,0.15);">💰</div>
+      <div>
+        <div class="suggestion-title">Fantastical Calendar Connector</div>
+        <div class="suggestion-desc">New Fantastical MCP just launched — sync calendar events to dashboard + meal planning coordination. ~1 hr to set up.</div>
+      </div>
+    </div>
+    <div class="suggestion-item">
+      <div class="suggestion-icon" style="background: rgba(59,130,246,0.15);">📊</div>
+      <div>
+        <div class="suggestion-title">Grocery Budget Tracker</div>
+        <div class="suggestion-desc">Kroger audits already capture prices. Weekly roll-up → spending spreadsheet. ~2 hrs to build.</div>
+      </div>
+    </div>
+    <div class="suggestion-item">
+      <div class="suggestion-icon" style="background: rgba(168,85,247,0.15);">🎧</div>
+      <div>
+        <div class="suggestion-title">Podcast: Gemini TTS</div>
+        <div class="suggestion-desc">Free tier, ~50 episodes/month. Handoff doc ready. Plugin marketplace has audio tools now.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ROW 4 COL 2-3: ACTIVITY LOG ========== -->
+  <div class="card card-activity">
+    <div class="card-header">
+      <span class="card-title">Activity Log</span>
+      <span class="card-badge badge-cyan">Last 24 hrs</span>
+    </div>
+    <div class="activity-item">
+      <div class="activity-time">3:15p</div>
+      <div class="activity-dot" style="background: var(--cyan);"></div>
+      <div class="activity-text"><strong>CEO Agent</strong> refreshed dashboard (first run)</div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-time">2:09p</div>
+      <div class="activity-dot" style="background: var(--green);"></div>
+      <div class="activity-text"><strong>Kroger Cart</strong> polling — no confirmation yet</div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-time">2:02p</div>
+      <div class="activity-dot" style="background: var(--green);"></div>
+      <div class="activity-text"><strong>Confirm Meals</strong> polling — no picks yet</div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-time">5:55a</div>
+      <div class="activity-dot" style="background: var(--green);"></div>
+      <div class="activity-text"><strong>UGA Forum Agent</strong> delivered digest</div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-time">Thu 5:27p</div>
+      <div class="activity-dot" style="background: var(--green);"></div>
+      <div class="activity-text"><strong>Meal Planning</strong> proposal generated &amp; emailed</div>
+    </div>
+    <div class="activity-item">
+      <div class="activity-time">Thu 2:09p</div>
+      <div class="activity-dot" style="background: var(--green);"></div>
+      <div class="activity-text"><strong>Kroger Cart</strong> polling — dormant (no confirmation)</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Powered by Claude &middot; CEO Agent v1.0 &middot; Refreshes 7 AM / 1 PM / 7 PM ET &middot; damngooddawg.github.io/command-center
+</div>
+
+</body>
+</html>
