@@ -193,6 +193,7 @@ a:hover { text-decoration: underline; }
 .crm-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
 .crm-left {}
 .crm-right {}
+.gmail-unavail { background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.2); border-radius: 8px; padding: 10px 12px; font-size: 0.76rem; color: var(--yellow); margin-bottom: 10px; }
 @media (max-width: 1100px) {
   .dashboard { grid-template-columns: 1fr 1fr; grid-template-areas: "agents gmail" "weather gmail" "world uga" "meals meals" "suggest activity" "crm crm"; }
   .crm-grid { grid-template-columns: 1fr; }
@@ -215,55 +216,55 @@ a:hover { text-decoration: underline; }
   <div class="header-inner">
     <h1><span class="dot"></span> Command Center</h1>
     <div class="header-meta">
-      <div>Last refreshed: Thursday, April 16, 2026 · 7:04 PM ET</div>
-      <div>Next refresh: ~10:00 PM ET</div>
+      <div>Last refreshed: Friday, April 17, 2026 · 7:04 AM ET</div>
+      <div>Next refresh: ~10:00 AM ET</div>
     </div>
   </div>
 </div>
 
 <!-- ACTION BAR -->
 <div class="action-bar">
-  <div class="action-chip" style="border-color: rgba(239,68,68,0.3);">
-    <span class="chip-dot" style="background:var(--red)"></span>
-    🏈 Amaris Williams (EDGE) — Knee injury, expected to miss 2026 season
+  <div class="action-chip" style="border-color: rgba(186,12,47,0.4); background: rgba(186,12,47,0.06);">
+    <span class="chip-dot" style="background:var(--accent)"></span>
+    🏈 G-Day TOMORROW — 1 PM ET · SEC Network+ · Sanford Stadium
   </div>
   <div class="action-chip" style="border-color: rgba(239,68,68,0.3);">
     <span class="chip-dot" style="background:var(--red)"></span>
     🌍 Situation Monitor: OFFLINE — server not responding
   </div>
+  <div class="action-chip" style="border-color: rgba(239,68,68,0.3);">
+    <span class="chip-dot" style="background:var(--red)"></span>
+    🏈 Amaris Williams ACL — surgery Monday, likely out 2026 season
+  </div>
   <div class="action-chip" style="border-color: rgba(234,179,8,0.3);">
     <span class="chip-dot" style="background:var(--yellow)"></span>
     💳 myFICO restarting 5/15 · $29.95/mo — decide to keep or cancel
   </div>
-  <div class="action-chip" style="border-color: rgba(34,197,94,0.3);">
-    <span class="chip-dot" style="background:var(--green)"></span>
-    📦 USPS: 6 mailpieces + 3 packages arriving today
-  </div>
-  <div class="action-chip" style="border-color: rgba(186,12,47,0.3);">
-    <span class="chip-dot" style="background:var(--accent)"></span>
-    🐾 G-Day Spring Game this Saturday — Williams injury update expected
-  </div>
   <div class="action-chip" style="border-color: rgba(59,130,246,0.3);">
     <span class="chip-dot" style="background:var(--blue)"></span>
-    🎫 Georgia Softball Flash Sale — 24 hrs only, tickets vs. #5 Texas
+    📧 Gmail MCP unavailable this refresh — data from prior run
+  </div>
+  <div class="action-chip" style="border-color: rgba(239,68,68,0.3);">
+    <span class="chip-dot" style="background:var(--red)"></span>
+    🌐 IMF: Middle East war darkens global outlook — Hormuz closure risk
   </div>
 </div>
 
-<!-- DASHBOARD GRID -->
+<!-- DASHBOARD -->
 <div class="dashboard">
 
-  <!-- AGENT STATUS -->
+  <!-- ===== AGENTS ===== -->
   <div class="card card-agents">
     <div class="card-header">
       <span class="card-title">⚙️ Agent Status</span>
-      <span class="card-badge badge-yellow">5/6 active</span>
+      <span class="card-badge badge-yellow">5 / 6 active</span>
     </div>
 
     <div class="agent-row">
-      <div class="agent-icon" style="background:rgba(186,12,47,0.15)">🐾</div>
+      <div class="agent-icon" style="background:rgba(186,12,47,0.12)">🐾</div>
       <div class="agent-info">
         <div class="agent-name">UGA Forum Agent</div>
-        <div class="agent-detail">Today · Scan 4:11 AM · Deliver 5:52 AM ✓</div>
+        <div class="agent-detail">Today, Apr 17 · Run #51 · 4 boards, 38 threads scanned</div>
       </div>
       <div class="status-dot status-green"></div>
     </div>
@@ -272,16 +273,16 @@ a:hover { text-decoration: underline; }
       <div class="agent-icon" style="background:rgba(34,197,94,0.1)">🍽️</div>
       <div class="agent-info">
         <div class="agent-name">Meal Planning</div>
-        <div class="agent-detail">Today · Plan sent 12:36 AM · Kroger triggered ✓</div>
+        <div class="agent-detail">Meals confirmed — Beef Stew + Turkey Meatballs (Apr 16–22)</div>
       </div>
       <div class="status-dot status-green"></div>
     </div>
 
     <div class="agent-row">
-      <div class="agent-icon" style="background:rgba(59,130,246,0.1)">🛒</div>
+      <div class="agent-icon" style="background:rgba(6,182,212,0.1)">🛒</div>
       <div class="agent-info">
         <div class="agent-name">Kroger Cart</div>
-        <div class="agent-detail">Today · Cart built, 22 items added ✓</div>
+        <div class="agent-detail">Built Apr 16 · 22/22 items added · 3 swap notes</div>
       </div>
       <div class="status-dot status-green"></div>
     </div>
@@ -290,7 +291,7 @@ a:hover { text-decoration: underline; }
       <div class="agent-icon" style="background:rgba(239,68,68,0.1)">🌍</div>
       <div class="agent-info">
         <div class="agent-name">Situation Monitor</div>
-        <div class="agent-detail">OFFLINE · localhost:8000 not responding</div>
+        <div class="agent-detail">Server OFFLINE · No brief data available · Needs restart</div>
       </div>
       <div class="status-dot status-red"></div>
     </div>
@@ -299,365 +300,360 @@ a:hover { text-decoration: underline; }
       <div class="agent-icon" style="background:rgba(168,85,247,0.1)">🎙️</div>
       <div class="agent-info">
         <div class="agent-name">Podcast Pipeline</div>
-        <div class="agent-detail">Today · TTS generated with digest deliver ✓</div>
+        <div class="agent-detail">Today, Apr 17 · 8:17 runtime · 4 TTS chunks · Drive uploaded</div>
       </div>
       <div class="status-dot status-green"></div>
     </div>
 
     <div class="agent-row">
-      <div class="agent-icon" style="background:rgba(6,182,212,0.1)">📅</div>
+      <div class="agent-icon" style="background:rgba(59,130,246,0.1)">📅</div>
       <div class="agent-info">
         <div class="agent-name">Meal Proposal</div>
-        <div class="agent-detail">Last: Apr 15, 9:15 AM · Next: Wed Apr 22, 9:00 AM</div>
+        <div class="agent-detail">Sent Apr 16 · 8 options · Taylor picked #5 &amp; #8</div>
       </div>
       <div class="status-dot status-green"></div>
     </div>
-
   </div>
 
-  <!-- GMAIL -->
+  <!-- ===== GMAIL ===== -->
   <div class="card card-gmail">
     <div class="card-header">
       <span class="card-title">📬 Gmail</span>
-      <span class="card-badge badge-red">28 unread</span>
+      <span class="card-badge badge-yellow">MCP offline</span>
+    </div>
+
+    <div class="gmail-unavail">
+      ⚠️ Gmail MCP was unavailable this refresh. Showing data from last successful run (Thu Apr 16 · 7:04 PM ET — 28 unread total).
     </div>
 
     <div class="email-section-label email-section-action">⚡ Action Required</div>
 
     <div class="email-item">
-      <div class="email-priority" style="background:var(--yellow)"></div>
+      <div class="email-priority" style="background:var(--red)"></div>
       <div class="email-content">
-        <div class="email-subject">💳 myFICO subscription restarting May 15</div>
-        <div class="email-preview">Your paused FICO® Advanced plan resumes at $29.95/mo on 5/15/26</div>
+        <div class="email-subject">myFICO Subscription — Restarting May 15</div>
+        <div class="email-preview">Your $29.95/mo plan resumes on May 15. Decide to keep or cancel before then.</div>
       </div>
-      <div class="email-time">4:00 AM</div>
-    </div>
-
-    <div class="email-item">
-      <div class="email-priority" style="background:var(--blue)"></div>
-      <div class="email-content">
-        <div class="email-subject">🏠 Freedom Mortgage — One-Time Payment Scheduled</div>
-        <div class="email-preview">Electronic transfer scheduled for loan ending in 2459 — verify amount</div>
-      </div>
-      <div class="email-time">2:52 PM</div>
-    </div>
-
-    <div class="email-item">
-      <div class="email-priority" style="background:var(--accent)"></div>
-      <div class="email-content">
-        <div class="email-subject">🏫 Athens Academy eSpartan — April 16, 2026</div>
-        <div class="email-preview">Regional championships in tennis and soccer; K4 dress rehearsal this AM</div>
-      </div>
-      <div class="email-time">3:02 PM</div>
-    </div>
-
-    <div class="email-item">
-      <div class="email-priority" style="background:var(--green)"></div>
-      <div class="email-content">
-        <div class="email-subject">📦 USPS Informed Delivery — 6 mail + 3 packages</div>
-        <div class="email-preview">6 mailpieces and 3 inbound packages arriving today, Thu Apr 16</div>
-      </div>
-      <div class="email-time">7:46 AM</div>
-    </div>
-
-    <div class="email-item">
-      <div class="email-priority" style="background:var(--accent)"></div>
-      <div class="email-content">
-        <div class="email-subject">🥎 Georgia Softball Flash Sale — 24 hrs only</div>
-        <div class="email-preview">Tickets vs. No. 5 Texas at Jack Turner Stadium this weekend</div>
-      </div>
-      <div class="email-time">9:02 AM</div>
-    </div>
-
-    <div class="email-section-label email-section-fyi" style="margin-top:12px;">📨 FYI</div>
-
-    <div class="email-item">
-      <div class="email-priority" style="background:#3b82f6"></div>
-      <div class="email-content">
-        <div class="email-subject">🏀 Georgia adds Penn State's Freddie Dilione V (ON3 Newsletter)</div>
-        <div class="email-preview">Georgia basketball secures Penn State's leading scorer in transfer portal</div>
-      </div>
-      <div class="email-time">7:59 PM</div>
-    </div>
-
-    <div class="email-item">
-      <div class="email-priority" style="background:var(--accent)"></div>
-      <div class="email-content">
-        <div class="email-subject">🐾 Dawg Post: Final Feelings — What Will Happen at G-Day?</div>
-        <div class="email-preview">Preview of Saturday's spring game and storylines to watch</div>
-      </div>
-      <div class="email-time">5:32 PM</div>
+      <div class="email-time">Thu</div>
     </div>
 
     <div class="email-item">
       <div class="email-priority" style="background:var(--orange)"></div>
       <div class="email-content">
-        <div class="email-subject">⛳ TGC Junior Golf Series 2026 — Open Registration</div>
-        <div class="email-preview">Summer junior golf series at The Georgia Club — perfect for young golfers</div>
+        <div class="email-subject">Freedom Mortgage — Payment Scheduled</div>
+        <div class="email-preview">Your mortgage payment has been scheduled. Confirm amount and date are correct.</div>
       </div>
-      <div class="email-time">4:00 PM</div>
+      <div class="email-time">Thu</div>
     </div>
 
     <div class="email-item">
-      <div class="email-priority" style="background:var(--purple)"></div>
+      <div class="email-priority" style="background:var(--yellow)"></div>
       <div class="email-content">
-        <div class="email-subject">🏌️ RBC Heritage Preview — Is Scheffler About to Surge? (PGA Tour)</div>
-        <div class="email-preview">Post-Masters preview: 16 of top 20 return at Harbour Town</div>
+        <div class="email-subject">Dawgs Digest — Apr 17, 2026 (Run #51)</div>
+        <div class="email-preview">G-Day preview · Williams ACL · Ellis Robinson hold-out · Jaxon Dollar TE buzz</div>
       </div>
-      <div class="email-time">7:13 AM</div>
+      <div class="email-time">7:04 AM</div>
     </div>
 
     <div class="email-item">
-      <div class="email-priority" style="background:var(--text-muted)"></div>
+      <div class="email-priority" style="background:var(--yellow)"></div>
       <div class="email-content">
-        <div class="email-subject">🚗 Bring a Trailer: 1979 Ford F-150 Ranger 4x4 — No Reserve</div>
-        <div class="email-preview">Classic F-150 now live on BaT, no reserve auction</div>
+        <div class="email-subject">🎙️ Dawgs Digest Podcast Ready — Apr 17</div>
+        <div class="email-preview">Your podcast is ready on Google Drive. ~8:17 runtime, 4-segment show.</div>
       </div>
-      <div class="email-time">4:06 PM</div>
+      <div class="email-time">7:04 AM</div>
+    </div>
+
+    <div class="email-section-label email-section-fyi">FYI</div>
+
+    <div class="email-item">
+      <div class="email-priority" style="background:#444"></div>
+      <div class="email-content">
+        <div class="email-subject">Kroger Cart Audit — Week of Apr 16–22</div>
+        <div class="email-preview">22/22 items added. Swap notes: Yukon Gold → Sweet Potato, Chuck → Eye of Round</div>
+      </div>
+      <div class="email-time">Wed</div>
     </div>
 
     <div class="email-item">
-      <div class="email-priority" style="background:var(--text-muted)"></div>
+      <div class="email-priority" style="background:#444"></div>
       <div class="email-content">
-        <div class="email-subject">🏈 NFL Draft 2026 — Watch on YouTube TV (ESPN)</div>
-        <div class="email-preview">257-pick mock draft breakdown + NHL and NBA playoffs start this weekend</div>
+        <div class="email-subject">This Week's Meals — April 16–22, 2026</div>
+        <div class="email-preview">Confirmed: Slow Cooker Beef Stew + Crockpot Turkey Meatballs in Marinara</div>
       </div>
-      <div class="email-time">4:21 PM</div>
+      <div class="email-time">Wed</div>
     </div>
 
-    <div class="email-summary">28 unread · 5 action items · remaining are newsletters and promos</div>
+    <div class="email-item">
+      <div class="email-priority" style="background:#444"></div>
+      <div class="email-content">
+        <div class="email-subject">USPS Informed Delivery</div>
+        <div class="email-preview">6 mailpieces + 3 packages arriving today at your address</div>
+      </div>
+      <div class="email-time">Thu</div>
+    </div>
+
+    <div class="email-summary">Showing 7 of ~28 unread · <em>Data from Thu Apr 16 · 7:04 PM run</em></div>
   </div>
 
-  <!-- WEATHER -->
+  <!-- ===== WEATHER ===== -->
   <div class="card card-weather">
     <div class="card-header">
-      <span class="card-title">🌤️ Weather</span>
+      <span class="card-title">🌤️ Weather — Statham, GA</span>
       <span class="card-badge badge-green">Clear</span>
     </div>
-
-    <div class="weather-location">📍 Statham, GA · 7:04 PM ET</div>
-
+    <div class="weather-location">📍 33.93°N 83.58°W · Open-Meteo</div>
     <div class="weather-current">
-      <div class="weather-temp">82°</div>
+      <div class="weather-temp">61°</div>
       <div>
-        <div style="font-size:2rem;">☀️</div>
-        <div class="weather-desc">Clear Sky</div>
+        <div style="font-size:0.95rem; font-weight:600;">⛅ Partly Cloudy</div>
+        <div class="weather-desc">Feels like 60°F · Wind W 4.9 mph</div>
+        <div class="weather-desc">Precip: 0.00 in</div>
       </div>
     </div>
-
     <div class="weather-details">
-      <span>🌡️ Feels like 78°</span>
-      <span>💨 SW 8.9 mph</span>
-      <span>🌧️ 0.00" precip</span>
-      <span>🧭 219°</span>
+      <span>💧 Humidity N/A</span>
+      <span>💨 Wind: W 4.9 mph</span>
+      <span>🌡️ Feels like: 60°F</span>
     </div>
 
-    <!-- 7-Day Forecast -->
-    <div class="forecast-row">
-      <div class="forecast-day">Thu</div>
-      <div class="forecast-icon">☀️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:20%;width:65%;"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">85°</span> <span class="forecast-lo">60°</span></div>
-      <div class="forecast-rain">0%</div>
-    </div>
-    <div class="forecast-row">
-      <div class="forecast-day">Fri</div>
-      <div class="forecast-icon">☁️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:25%;width:70%;"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">88°</span> <span class="forecast-lo">64°</span></div>
-      <div class="forecast-rain">1%</div>
-    </div>
-    <div class="forecast-row">
-      <div class="forecast-day">Sat</div>
-      <div class="forecast-icon">☁️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:22%;width:68%;"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">87°</span> <span class="forecast-lo">63°</span></div>
-      <div class="forecast-rain">2%</div>
-    </div>
-    <div class="forecast-row">
-      <div class="forecast-day">Sun</div>
-      <div class="forecast-icon">🌦️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:10%;width:50%;"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">71°</span> <span class="forecast-lo">53°</span></div>
-      <div class="forecast-rain" style="color:var(--yellow)">19%</div>
-    </div>
-    <div class="forecast-row">
-      <div class="forecast-day">Mon</div>
-      <div class="forecast-icon">☀️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:5%;width:52%;"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">74°</span> <span class="forecast-lo">42°</span></div>
-      <div class="forecast-rain">1%</div>
-    </div>
-    <div class="forecast-row">
-      <div class="forecast-day">Tue</div>
-      <div class="forecast-icon">☁️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:10%;width:55%;"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">75°</span> <span class="forecast-lo">48°</span></div>
-      <div class="forecast-rain">0%</div>
-    </div>
-    <div class="forecast-row">
-      <div class="forecast-day">Wed</div>
-      <div class="forecast-icon">☁️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:15%;width:58%;"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">77°</span> <span class="forecast-lo">54°</span></div>
-      <div class="forecast-rain">1%</div>
+    <!-- 7-day forecast -->
+    <div class="forecast-row" style="border-bottom:1px solid var(--card-border); padding-bottom:8px; margin-bottom:4px;">
+      <span style="font-size:0.65rem; color:var(--text-muted); width:36px;">Day</span>
+      <span style="font-size:0.65rem; color:var(--text-muted); width:26px;"></span>
+      <span style="flex:1; font-size:0.65rem; color:var(--text-muted); margin:0 10px;">Range</span>
+      <span style="font-size:0.65rem; color:var(--text-muted); width:60px; text-align:right;">Hi / Lo</span>
+      <span style="font-size:0.65rem; color:var(--blue); width:32px; text-align:right;">💧</span>
     </div>
 
-    <div style="margin-top:10px;font-size:0.68rem;color:var(--text-muted);">G-Day Saturday: ☁️ 87°/63° — Overcast, perfect football weather</div>
+    <!-- Fri (today) -->
+    <div class="forecast-row">
+      <span class="forecast-day" style="color:var(--text); font-weight:600;">Fri</span>
+      <span class="forecast-icon">⛅</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:39%; width:57.5%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">88°</span> <span class="forecast-lo">/ 61°</span></div>
+      <span class="forecast-rain">0%</span>
+    </div>
+    <!-- Sat - G-Day! -->
+    <div class="forecast-row">
+      <span class="forecast-day" style="color:var(--accent-light); font-weight:600;">Sat</span>
+      <span class="forecast-icon">☁️</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:39.7%; width:60.3%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi" style="color:var(--accent-light)">89°</span> <span class="forecast-lo">/ 61°</span></div>
+      <span class="forecast-rain">1%</span>
+    </div>
+    <!-- Sun -->
+    <div class="forecast-row">
+      <span class="forecast-day">Sun</span>
+      <span class="forecast-icon">🌧️</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:14.2%; width:48.3%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">72°</span> <span class="forecast-lo">/ 49°</span></div>
+      <span class="forecast-rain" style="color:var(--cyan)">20%</span>
+    </div>
+    <!-- Mon -->
+    <div class="forecast-row">
+      <span class="forecast-day">Mon</span>
+      <span class="forecast-icon">☀️</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:0%; width:74.4%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">77°</span> <span class="forecast-lo">/ 43°</span></div>
+      <span class="forecast-rain">0%</span>
+    </div>
+    <!-- Tue -->
+    <div class="forecast-row">
+      <span class="forecast-day">Tue</span>
+      <span class="forecast-icon">☁️</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:10.3%; width:65.3%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">78°</span> <span class="forecast-lo">/ 48°</span></div>
+      <span class="forecast-rain">0%</span>
+    </div>
+    <!-- Wed -->
+    <div class="forecast-row">
+      <span class="forecast-day">Wed</span>
+      <span class="forecast-icon">☁️</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:26.5%; width:57.3%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">82°</span> <span class="forecast-lo">/ 55°</span></div>
+      <span class="forecast-rain">1%</span>
+    </div>
+    <!-- Thu -->
+    <div class="forecast-row">
+      <span class="forecast-day">Thu</span>
+      <span class="forecast-icon">☁️</span>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:27.4%; width:59.5%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">83°</span> <span class="forecast-lo">/ 56°</span></div>
+      <span class="forecast-rain">1%</span>
+    </div>
+
+    <div style="margin-top:8px; font-size:0.7rem; color:var(--accent-light); font-weight:600;">🏈 G-Day Sat looks great — warm &amp; dry at 89°F</div>
   </div>
 
-  <!-- WORLD BRIEFING -->
+  <!-- ===== WORLD BRIEFING ===== -->
   <div class="card card-world">
     <div class="card-header">
-      <span class="card-title">🌍 World Briefing</span>
-      <span class="card-badge badge-red">High Tension</span>
+      <span class="card-title">🌐 World Briefing</span>
+      <span class="card-badge badge-red">High tension</span>
     </div>
 
-    <!-- Situation Monitor: OFFLINE -->
+    <!-- Situation Monitor offline notice -->
     <div class="situation-box">
       <div class="situation-header">
-        <span>🔴 Situation Monitor — OFFLINE</span>
-        <span>localhost:8000</span>
+        <span>🛰️ Situation Monitor</span>
+        <span style="color:var(--red)">OFFLINE</span>
       </div>
-      <div class="situation-body">GEOINT server not responding. No live brief available. Manual world summary below from open-source reporting. Restart the server to restore monitoring.</div>
-      <a href="http://100.109.89.118:8000" class="situation-link">View Dashboard → (Tailscale)</a>
+      <div class="situation-body">Server at localhost:8000 not responding. No live GEOINT brief available. Last known status: offline for multiple refresh cycles.</div>
+      <a class="situation-link" href="http://100.109.89.118:8000" target="_blank">View Dashboard (Tailscale) →</a>
     </div>
 
     <div class="world-item">
-      <div class="world-headline"><span class="world-source src-reuters">Reuters</span>US-Iran Tensions: Trump Moves Toward Ceasefire Claim</div>
-      <div class="world-summary">Trump administration working to declare victory in Iran conflict; Israel and Lebanon agreed to a 10-day ceasefire amid complex Mideast negotiations spanning Gaza, Hezbollah, and Iran.</div>
+      <div class="world-headline">
+        <span class="world-source src-imf2">IMF</span>
+        IMF WEO: "Global Economy in the Shadow of War" — Hormuz Blockade Risk
+      </div>
+      <div class="world-summary">Middle East war has darkened the global economic outlook. IMF cut 2026 global growth forecast to 3.1%. Hormuz closure would trigger a major energy crisis. MENA growth cut 2.8pts to 1.1%; Iran forecast −6.1%.</div>
+      <div class="world-meta">Apr 14, 2026 · <a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026" target="_blank" style="color:var(--blue)">IMF WEO Report</a></div>
+    </div>
+
+    <div class="world-item">
+      <div class="world-headline">
+        <span class="world-source src-reuters">Reuters</span>
+        US-Iran De-escalation Push Underway — Ceasefire Talks Active
+      </div>
+      <div class="world-summary">US-Iran ceasefire push is underway with backchannel negotiations. Regional oil markets partially stabilized on optimism that Strait of Hormuz will remain open, though situation remains fragile.</div>
+      <div class="world-meta">Apr 16–17, 2026</div>
+    </div>
+
+    <div class="world-item">
+      <div class="world-headline">
+        <span class="world-source src-ap">AP</span>
+        Russia Launches Massive Drone/Missile Strike on Ukraine — 16+ Killed
+      </div>
+      <div class="world-summary">Russia carried out a large-scale drone and missile assault on Ukrainian cities, killing at least 16 civilians and injuring dozens. Western allies called for emergency consultations over the escalation.</div>
       <div class="world-meta">Apr 16, 2026</div>
     </div>
 
     <div class="world-item">
-      <div class="world-headline"><span class="world-source src-ap">AP</span>Russia Strikes Ukraine with Drones and Missiles — 16+ Killed</div>
-      <div class="world-summary">Russia hammered civilian areas with hundreds of drones and dozens of missiles in a multi-hour attack, killing at least 16 people. One of the largest single-day strikes in weeks.</div>
-      <div class="world-meta">Apr 16, 2026</div>
+      <div class="world-headline">
+        <span class="world-source src-bbc">BBC</span>
+        US-China Summit in April — Trade Deal Involving Semiconductors &amp; Rare Earths
+      </div>
+      <div class="world-summary">Xi Jinping and Trump expected to meet in April. A tentative trade arrangement is anticipated, leveraging US strength in advanced semiconductors against China's dominance in critical minerals and rare earth elements.</div>
+      <div class="world-meta">Apr 2026</div>
     </div>
 
     <div class="world-item">
-      <div class="world-headline"><span class="world-source src-bbc">BBC</span>Australia Raises Defense Spending to 3% of GDP by 2033</div>
-      <div class="world-summary">Canberra cites "most complex and threatening" geopolitical situation since WWII, driven by China's growing Indo-Pacific influence and doubts about U.S. staying power in the region.</div>
-      <div class="world-meta">Apr 16, 2026</div>
-    </div>
-
-    <div class="world-item">
-      <div class="world-headline"><span class="world-source src-imf2">IMF</span>World Economic Outlook: "Global Economy in the Shadow of War"</div>
-      <div class="world-summary">April 2026 report flags rising commodity prices, firmer inflation expectations, and tighter financial conditions from Middle East conflict and tariff uncertainty, testing global resilience.</div>
+      <div class="world-headline">
+        <span class="world-source src-aljazeera">Al Jazeera</span>
+        IMF Cuts Global Forecast as Multipolar Trade Wars Intensify
+      </div>
+      <div class="world-summary">Beyond active conflicts, trade restrictions by all major blocs are fragmenting global commerce. Global headline inflation projected to rise to 4.4% in 2026 before declining in 2027.</div>
       <div class="world-meta">Apr 14, 2026</div>
     </div>
-
-    <div class="world-item">
-      <div class="world-headline"><span class="world-source src-usat">USA Today</span>Pentagon Drawing Up Plans for Possible U.S. Invasion of Cuba</div>
-      <div class="world-summary">Preliminary military planning underway per USA Today reporting; Cuba relationship with Russia and China cited as rationale.</div>
-      <div class="world-meta">Apr 16, 2026</div>
-    </div>
-
   </div>
 
-  <!-- UGA -->
+  <!-- ===== UGA ===== -->
   <div class="card card-uga">
     <div class="card-header">
       <span class="card-title">🐾 UGA Bulldogs</span>
-      <span class="card-badge badge-red">G-Day Saturday</span>
+      <span class="card-badge badge-red">G-Day Tomorrow!</span>
     </div>
-
     <div class="uga-header">
       <div class="uga-logo">UGA</div>
-      <div style="font-size:0.8rem;color:var(--text-muted);">Go Dawgs! Spring 2026 · G-Day Apr 19</div>
+      <div style="font-size:0.78rem; color:var(--text-muted);">Back-to-back SEC Champions · 12–2 · Spring Practice 2026</div>
     </div>
 
     <div class="news-item">
       <div class="news-headline">
-        <span class="news-source src-nationaltoday">INJURY</span>
-        <a href="https://nationaltoday.com/us/ga/atlanta/news/2026/04/16/georgia-bulldogs-edge-amaris-williams-suffers-knee-injury-expected-to-miss-2026-season/" target="_blank">🚨 Amaris Williams (EDGE) — Knee Injury, Expected to Miss 2026 Season</a>
+        <span class="news-source src-dawgvent">Dawgvent</span>
+        🚨 Amaris Williams (EDGE) — ACL Surgery Monday, Likely Out 2026 Season
       </div>
-      <div class="news-meta">Major loss on defense · Kirby Smart expected to address at G-Day · Apr 16</div>
+      <div class="news-meta">SoFl_Dawg: context on struggles; surgery confirmed Monday · Digest run #51</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-headline">
+        <span class="news-source src-dawgpost">Dawg Post</span>
+        <a href="https://sicemdawgs.com/2026/04/uga-spring-game-how-to-watch-g-day-2026-kickoff-time-streaming-info" target="_blank">G-Day 2026: Sat Apr 18 · 1 PM ET · SEC Network+ · Sanford Stadium</a>
+      </div>
+      <div class="news-meta">Puglisi ahead of Montgomery at WR · Tyriq Greene rising · Prothro out wide</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-headline">
+        <span class="news-source src-dawgvent">Dawgvent</span>
+        Ellis Robinson IV (CB) — Precautionary Hold-Out, Back in Summer
+      </div>
+      <div class="news-meta">SoFl_Dawg calls Ellis "best player on defense" — no concern on timeline</div>
     </div>
 
     <div class="news-item">
       <div class="news-headline">
         <span class="news-source src-on3">ON3</span>
-        <a href="https://newsletter.on3.com" target="_blank">🏀 Georgia Lands Penn State's Freddie Dilione V (Transfer)</a>
+        <a href="https://dawgpost.com/s/8136/four-star-defender-makes-eye-opening-statement-about-uga-football" target="_blank">Four-Star Defender Makes Eye-Opening Statement About UGA Football</a>
       </div>
-      <div class="news-meta">Penn State's leading scorer joins Bulldogs basketball · Apr 16</div>
+      <div class="news-meta">2027 class: 8 commits · 4★ CBs Donte Wright &amp; Jerry Outhouse Jr. confirmed</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-headline">
+        <span class="news-source src-cfb">Forum</span>
+        Jaxon Dollar (TE) — SoFl: "Best TE in the Cycle" · Must-Win vs. Miami
+      </div>
+      <div class="news-meta">Dollar OV battle heats up · Adryan Cole + Nate Kamba OVs set for June 12</div>
     </div>
 
     <div class="news-item">
       <div class="news-headline">
         <span class="news-source src-ajc">AJC</span>
-        <a href="https://www.ajc.com/sports/2026/04/kirby-smart-fires-back-at-steve-smiths-criticism-of-georgia-do-your-homework/" target="_blank">Kirby Smart Fires Back at Steve Smith: "Do Your Homework"</a>
+        Kirby Smart Fires Back at Steve Smith — QB Gunner Stockton Debate Continues
       </div>
-      <div class="news-meta">Smart defends QB Gunner Stockton and Georgia's offense against NFL analyst criticism · Apr 16</div>
+      <div class="news-meta">Stockton entering year 2 as starter · Kirby defending QB decision publicly</div>
     </div>
-
-    <div class="news-item">
-      <div class="news-headline">
-        <span class="news-source src-dawgnation">DawgNation</span>
-        <a href="https://www.dawgnation.com/football/spring-updates/kirby-smart-is-glad-he-doesnt-have-spring-transfer-portal-worry-about/4LR7BIEUW5CVVNEZR5GQOGVFLM/" target="_blank">NCAA Eliminates Spring Portal Window — Smart Pleased with Stability</a>
-      </div>
-      <div class="news-meta">First year with no spring portal window helps Georgia's prep depth and continuity · Apr 16</div>
-    </div>
-
-    <div class="news-item">
-      <div class="news-headline">
-        <span class="news-source src-georgiadogs">GEORGIADOGS</span>
-        <a href="https://georgiadogs.com/news/2026/4/15/softball-fisher-goodwin-help-no-13-bulldogs-to-7-5-win-over-kennesaw-state" target="_blank">⚾ #13 Softball Beats Kennesaw State 7-5 — Hosts #5 Texas This Weekend</a>
-      </div>
-      <div class="news-meta">Bailey Park win sets up big home series vs. Texas · Apr 15</div>
-    </div>
-
   </div>
 
-  <!-- MEAL PLAN -->
+  <!-- ===== MEALS ===== -->
   <div class="card card-meals">
     <div class="card-header">
-      <span class="card-title">🍽️ Meal Plan</span>
-      <span class="card-badge badge-green">Apr 16–22 · Cart Built</span>
+      <span class="card-title">🍽️ Meal Plan — Apr 16–22</span>
+      <span class="card-badge badge-green">Cart Built ✓</span>
     </div>
 
     <div class="meal-grid">
       <div class="meal-day">
-        <div class="meal-day-label">Week of</div>
-        <div class="meal-day-name">April 16–22, 2026</div>
-        <div><span class="meal-tag tag-new">NEW WEEK</span></div>
+        <div class="meal-day-label">Meal 1 · This Week</div>
+        <div class="meal-day-name">Slow Cooker Beef Stew</div>
+        <span class="meal-tag tag-sunday">⭐ Sunday Cook</span>
+        <span class="meal-tag tag-new">New</span>
+        <div style="font-size:0.68rem; color:var(--text-muted); margin-top:4px;">The Cozy Cook · 4.98/5 · 813 reviews</div>
       </div>
       <div class="meal-day">
-        <div class="meal-day-label">Selections</div>
-        <div class="meal-day-name">Picks confirmed (options 5 &amp; 8)</div>
-        <div><span class="meal-tag tag-quick">PICKED</span></div>
+        <div class="meal-day-label">Meal 2 · This Week</div>
+        <div class="meal-day-name">Crockpot Turkey Meatballs in Marinara</div>
+        <span class="meal-tag tag-slowcook">Slow Cook</span>
+        <span class="meal-tag tag-new">New</span>
+        <div style="font-size:0.68rem; color:var(--text-muted); margin-top:4px;">Real Food Whole Life · 5.0/5 · 18 reviews</div>
       </div>
-      <div class="meal-day">
-        <div class="meal-day-label">Plan Status</div>
-        <div class="meal-day-name">Meal plan emailed 12:36 AM</div>
-        <div><span class="meal-tag tag-quick">DELIVERED</span></div>
-      </div>
-      <div class="meal-day">
-        <div class="meal-day-label">Kroger Status</div>
-        <div class="meal-day-name">Cart built · 22 items added</div>
-        <div><span class="meal-tag tag-sunday">COMPLETE</span></div>
-      </div>
+    </div>
+
+    <div class="kroger-note">
+      ⚠️ 3 Kroger swap notes: Yukon Gold → Sweet Potato (swap at checkout) · Eye of Round → Chuck Roast (if available) · Gravy Master not found (optional, skip ok)
     </div>
 
     <div class="meal-pipeline">
-      <div class="pipeline-label">Pipeline Status — Week of Apr 16</div>
+      <div class="pipeline-label">Pipeline</div>
       <div class="pipeline-steps">
-        <div class="pipeline-step step-done">📋 Proposal<br>Sent</div>
+        <div class="pipeline-step step-done">✓ Proposal</div>
         <div class="pipeline-arrow">›</div>
-        <div class="pipeline-step step-done">✅ Picks<br>Received</div>
+        <div class="pipeline-step step-done">✓ Confirmed</div>
         <div class="pipeline-arrow">›</div>
-        <div class="pipeline-step step-done">📧 Plan<br>Sent</div>
+        <div class="pipeline-step step-done">✓ Cart Built</div>
         <div class="pipeline-arrow">›</div>
-        <div class="pipeline-step step-done">🛒 Kroger<br>Triggered</div>
-        <div class="pipeline-arrow">›</div>
-        <div class="pipeline-step step-done">✓ Cart<br>Built</div>
+        <div class="pipeline-step step-pending">Order</div>
       </div>
     </div>
 
-    <div class="kroger-note">📅 Next proposal: Wednesday, April 22 at 9:00 AM — Kirby's spring game recap might inspire a tailgate meal idea!</div>
+    <div style="margin-top:10px; font-size:0.72rem; color:var(--text-muted);">Next proposal: Wednesday, Apr 22 · 9:00 AM ET</div>
   </div>
 
-  <!-- SUGGESTED AUTOMATIONS -->
+  <!-- ===== SUGGESTIONS ===== -->
   <div class="card card-suggest">
     <div class="card-header">
       <span class="card-title">💡 Suggested Automations</span>
@@ -665,155 +661,147 @@ a:hover { text-decoration: underline; }
     </div>
 
     <div class="suggestion-item">
-      <div class="suggestion-icon" style="background:rgba(239,68,68,0.15)">🔔</div>
+      <div class="suggestion-icon" style="background:rgba(186,12,47,0.12)">🏈</div>
       <div>
-        <div class="suggestion-title">Situation Monitor Auto-Alert</div>
-        <div class="suggestion-desc">The GEOINT server is offline again. Add a health-check ping that runs every 30 min and sends a push notification or email when localhost:8000 stops responding, so you can restart it quickly instead of discovering it during a refresh.</div>
-        <span class="suggestion-effort">Medium effort · launchd + curl</span>
+        <div class="suggestion-title">G-Day Morning Brief</div>
+        <div class="suggestion-desc">Auto-send a pre-game email tomorrow morning with key storylines from today's Digest — Williams injury update, QB depth chart, spring standouts — so you have a quick-read before kickoff.</div>
+        <span class="suggestion-effort">Effort: Low · One-shot</span>
       </div>
     </div>
 
     <div class="suggestion-item">
-      <div class="suggestion-icon" style="background:rgba(186,12,47,0.15)">🏈</div>
+      <div class="suggestion-icon" style="background:rgba(239,68,68,0.1)">🌍</div>
       <div>
-        <div class="suggestion-title">G-Day Auto-Recap Agent</div>
-        <div class="suggestion-desc">G-Day is Saturday. Set up a one-time agent to scrape the box score, Kirby's post-game presser quotes, and injury updates (especially Williams) on Saturday evening and email a digest — so you get a full picture without hunting for it.</div>
-        <span class="suggestion-effort">Low effort · one-shot scheduled task</span>
+        <div class="suggestion-title">Situation Monitor Auto-Restart</div>
+        <div class="suggestion-desc">The GEOINT server has been offline for multiple refresh cycles. A launchd health check script could detect when localhost:8000 is down and auto-restart the server — keeping the Situation Monitor card live every refresh.</div>
+        <span class="suggestion-effort">Effort: Medium · Setup once</span>
       </div>
     </div>
 
     <div class="suggestion-item">
-      <div class="suggestion-icon" style="background:rgba(234,179,8,0.15)">💳</div>
+      <div class="suggestion-icon" style="background:rgba(6,182,212,0.1)">🛒</div>
       <div>
-        <div class="suggestion-title">myFICO Decision Reminder</div>
-        <div class="suggestion-desc">Your myFICO Advanced subscription restarts May 15 at $29.95/mo. Create a task that pulls your current FICO score now, checks if it's improved since you paused, and drafts a one-pager on whether renewing makes sense — due May 1.</div>
-        <span class="suggestion-effort">Low effort · scheduled Gmail draft</span>
+        <div class="suggestion-title">Cart-Ready Summary Email</div>
+        <div class="suggestion-desc">After the Kroger cart is built, auto-send a consolidated "ready to order" email with the full item list, all swap notes, and an estimated total — so everything is in one place when you open the Kroger app to checkout.</div>
+        <span class="suggestion-effort">Effort: Low · Add to cart agent</span>
       </div>
     </div>
-
   </div>
 
-  <!-- ACTIVITY LOG -->
+  <!-- ===== ACTIVITY LOG ===== -->
   <div class="card card-activity">
     <div class="card-header">
-      <span class="card-title">📋 Activity Log</span>
-      <span class="card-badge badge-green">Last 24h</span>
-    </div>
-
-    <div class="activity-item">
-      <div class="activity-time">7:04 PM</div>
-      <div class="activity-dot" style="background:var(--green)"></div>
-      <div class="activity-text"><strong>CEO Agent Refresh</strong> — Dashboard rebuilt and pushed to GitHub Pages ✅</div>
-    </div>
-
-    <div class="activity-item">
-      <div class="activity-time">1:04 PM</div>
-      <div class="activity-dot" style="background:var(--green)"></div>
-      <div class="activity-text"><strong>CEO Agent Refresh</strong> — Midday dashboard update complete ✅</div>
+      <span class="card-title">📋 Activity Log — Last 24h</span>
+      <span class="card-badge badge-green">All systems ran</span>
     </div>
 
     <div class="activity-item">
       <div class="activity-time">7:04 AM</div>
-      <div class="activity-dot" style="background:var(--green)"></div>
-      <div class="activity-text"><strong>CEO Agent Refresh</strong> — Morning dashboard update complete ✅</div>
+      <div class="activity-dot" style="background:var(--blue)"></div>
+      <div class="activity-text"><strong>CEO Agent Refresh</strong> — Dashboard rebuilt &amp; pushed to GitHub Pages (this run)</div>
     </div>
 
     <div class="activity-item">
-      <div class="activity-time">5:52 AM</div>
+      <div class="activity-time">~6:30 AM</div>
       <div class="activity-dot" style="background:var(--green)"></div>
-      <div class="activity-text"><strong>Dawgs Digest Deliver</strong> — Podcast TTS generated, digest delivered ✅</div>
+      <div class="activity-text"><strong>Dawgs Digest Deliver</strong> ✅ — Run #51 · Email + podcast sent to tkb5047@gmail.com · 8:17 min WAV on Drive · 5 BCC</div>
     </div>
 
     <div class="activity-item">
-      <div class="activity-time">4:11 AM</div>
+      <div class="activity-time">~5:30 AM</div>
       <div class="activity-dot" style="background:var(--green)"></div>
-      <div class="activity-text"><strong>Dawgs Digest Scan</strong> — Forum scan complete, posts collected ✅</div>
+      <div class="activity-text"><strong>Dawgs Digest Scan</strong> ✅ — Run #50 · 4 boards scanned · 38 threads · 320 posts · TalknDawgs first run · 54 stale threads pruned</div>
     </div>
 
     <div class="activity-item">
-      <div class="activity-time">12:43 AM</div>
+      <div class="activity-time">Thu 7:04 PM</div>
       <div class="activity-dot" style="background:var(--green)"></div>
-      <div class="activity-text"><strong>Build Kroger Cart</strong> — "Kroger" trigger received, cart built with 22 items ✅</div>
+      <div class="activity-text"><strong>CEO Agent Refresh</strong> ✅ — Commit cba2878e · 28 unread Gmail · CRM $177.60 +4.4%</div>
     </div>
 
     <div class="activity-item">
-      <div class="activity-time">12:36 AM</div>
+      <div class="activity-time">Thu</div>
       <div class="activity-dot" style="background:var(--green)"></div>
-      <div class="activity-text"><strong>Confirm Meals</strong> — Meal plan for Apr 16–22 emailed ✅</div>
+      <div class="activity-text"><strong>Build Kroger Cart</strong> ✅ — 22/22 items added · 3 swap notes · Audit PDF emailed</div>
     </div>
 
     <div class="activity-item">
-      <div class="activity-time">Yesterday<br>9:15 AM</div>
+      <div class="activity-time">Wed</div>
       <div class="activity-dot" style="background:var(--green)"></div>
-      <div class="activity-text"><strong>Generate Proposal</strong> — Weekly meal proposal sent, picks "5 and 8" received ✅</div>
+      <div class="activity-text"><strong>Confirm Meals</strong> ✅ — Taylor picked #5 (Beef Stew) &amp; #8 (Turkey Meatballs) · Confirmation emailed</div>
     </div>
 
+    <div class="activity-item">
+      <div class="activity-time">Wed 9 AM</div>
+      <div class="activity-dot" style="background:var(--green)"></div>
+      <div class="activity-text"><strong>Generate Proposal</strong> ✅ — 8 options for Apr 16–22 · Delivered as HTML-PDF via Chrome relay</div>
+    </div>
   </div>
 
-  <!-- CRM STOCK -->
+  <!-- ===== CRM STOCK ===== -->
   <div class="card card-crm">
     <div class="card-header">
-      <span class="card-title">📈 $CRM — Salesforce Inc.</span>
-      <span class="card-badge badge-yellow">NYSE · Earnings Jun 3</span>
+      <span class="card-title">📈 $CRM — Salesforce, Inc.</span>
+      <span class="card-badge badge-green">Moderate Buy</span>
     </div>
-
     <div class="crm-grid">
       <div class="crm-left">
         <div class="stock-row">
-          <div class="stock-price">$177.60</div>
-          <div class="stock-change" style="color:var(--green)">+4.4% today</div>
+          <div class="stock-price">$179.11</div>
+          <div class="stock-change" style="color:var(--green)">▲ +$1.51 (+0.85%)</div>
         </div>
         <div class="stock-details">
-          <span>📉 YTD: −29.9%</span>
-          <span>📊 Market Cap: $159.5B</span>
-          <span>🎯 Avg Target: $279.18</span>
-          <span>📅 Earnings: Jun 3, 2026</span>
-          <span>📉 vs 52-wk High: −39%</span>
+          <span>Prev close: $177.60</span>
+          <span>52-wk: $163.52 – $296.05</span>
+          <span>ATH: $369 (Dec 2024)</span>
+          <span>Target: $279.18 (+55.9%)</span>
+          <span>Next earnings: Jun 3, 2026</span>
         </div>
-
-        <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Analyst Sentiment (Tone of Recent Coverage)</div>
+        <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:6px;">Analyst Sentiment (tone of recent coverage)</div>
         <div class="sentiment-bar">
-          <div style="width:58%;background:var(--green)"></div>
-          <div style="width:27%;background:var(--yellow)"></div>
-          <div style="width:15%;background:var(--red)"></div>
+          <div style="width:65%; background:var(--green)"></div>
+          <div style="width:25%; background:var(--yellow)"></div>
+          <div style="width:10%; background:var(--red)"></div>
         </div>
         <div class="sentiment-labels">
-          <span>🟢 Bullish 58%</span>
-          <span>🟡 Mixed 27%</span>
-          <span>🔴 Bearish 15%</span>
+          <span>🟢 Bullish 65%</span>
+          <span>🟡 Neutral 25%</span>
+          <span>🔴 Bearish 10%</span>
         </div>
-
-        <div style="font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;">Wall Street Ratings (51 analysts)</div>
-        <div style="display:flex;gap:10px;font-size:0.72rem;">
-          <span style="color:var(--green)">● Buy: 38</span>
-          <span style="color:var(--yellow)">● Hold: 12</span>
-          <span style="color:var(--red)">● Sell: 1</span>
+        <div style="font-size:0.72rem; color:var(--text-muted); padding-top:8px; border-top:1px solid var(--card-border);">
+          <div style="margin-bottom:4px;"><strong style="color:var(--text)">Analyst consensus:</strong> 38 Buy · 12 Hold · 1 Sell</div>
+          <div><strong style="color:var(--text)">Rating:</strong> Strong Buy (8.7/10) — MarketBeat</div>
+          <div style="margin-top:4px;"><strong style="color:var(--text)">Agentforce ARR:</strong> $540M (+330% YoY) · FY2026 raised guidance</div>
+          <div style="margin-top:4px; font-style:italic; color:#666;">Stock is ~50% off Dec 2024 ATH of $369 — consensus sees significant upside</div>
         </div>
       </div>
-
       <div class="crm-right">
         <div class="analyst-item">
           <div class="analyst-headline">
-            <span class="analyst-source src-stockstory">StockStory / FinancialContent</span>
-            <a href="https://markets.financialcontent.com/stocks/article/stockstory-2026-4-15-salesforce-crm-stock-is-up-what-you-need-to-know" target="_blank">Salesforce Stock Is Up — What You Need To Know</a>
+            <span class="analyst-source src-seeking">Seeking Alpha</span>
+            <a href="https://seekingalpha.com/article/4873418-salesforce-capitalizing-on-the-massive-agentic-ai-opportunity" target="_blank">Salesforce: Capitalizing On The Massive Agentic AI Opportunity</a>
           </div>
-          <div class="analyst-meta">Apr 15 · CRM rallied 4.4% on US-Iran de-escalation optimism and sector-wide AI enthusiasm. Stock remains down 29.9% YTD and 39% below its 52-week high of $291.15. Recovery is real but still a long road back.</div>
+          <div class="analyst-meta">
+            <strong style="color:var(--green)">BULLISH</strong> — Agentforce at $540M ARR with 330% YoY growth is the growth driver the market has been waiting for. AI agent platform positions CRM as a beneficiary of enterprise automation spend wave. Strong Buy rating maintained.
+          </div>
         </div>
-
         <div class="analyst-item">
           <div class="analyst-headline">
-            <span class="analyst-source src-marketbeat">MarketBeat</span>
-            <a href="https://www.marketbeat.com/stocks/NYSE/CRM/forecast/" target="_blank">CRM Analyst Consensus: Strong Buy with 57% Upside</a>
+            <span class="analyst-source src-seeking">Seeking Alpha</span>
+            <a href="https://seekingalpha.com/article/4856617-salesforce-top-pick-for-2026-the-death-of-saas-has-been-overstated" target="_blank">Salesforce: Top Pick For 2026 — The Death of SaaS Has Been Overstated</a>
           </div>
-          <div class="analyst-meta">Apr 2026 · 34% Strong Buy, 40% Buy, 23% Hold, 3% Sell. Average price target $279.18 vs. current ~$177.60. Agentforce momentum — 29,000 deals closed, ARR up 200% YoY — driving bullish thesis. Next catalyst: June 3 earnings.</div>
+          <div class="analyst-meta">
+            <strong style="color:var(--green)">BULLISH</strong> — CRM trading at a multi-year low (~50% off ATH) while fundamentals remain intact. Agentforce creates a new revenue vector that should re-rate the stock. SaaS consolidation fears are exaggerated; CRM's installed base remains sticky.
+          </div>
         </div>
-
         <div class="analyst-item">
           <div class="analyst-headline">
-            <span class="analyst-source src-tikr">StockAnalysis</span>
-            <a href="https://stockanalysis.com/stocks/crm/forecast/" target="_blank">Salesforce: Agentforce ARR Hits $2.9B, Up 200% YoY — But Market Skeptical</a>
+            <span class="analyst-source src-seeking">Seeking Alpha</span>
+            <a href="https://seekingalpha.com/article/4857083-salesforce-take-a-good-look-at-agentforce-before-you-invest" target="_blank">Salesforce: Take A Good Look At Agentforce Before You Invest</a>
           </div>
-          <div class="analyst-meta">Apr 2026 · Q3 FY26 revenue $10.26B (+9% YoY). Agentforce AI platform generating real ARR but stock's deep YTD loss reflects investor concern about growth pace vs. expectations set at peak. Bulls see a mispriced AI leader; bears see slowing momentum.</div>
+          <div class="analyst-meta">
+            <strong style="color:var(--yellow)">CAUTIOUS / HOLD</strong> — Agentforce and Data Cloud combined represent only ~$1.4B ARR, less than 3.5% of total revenue. Rapid growth is from an unproven, small base. Premium valuation not yet justified by AI segment size. Wait for proof of scaling.
+          </div>
         </div>
       </div>
     </div>
@@ -822,7 +810,7 @@ a:hover { text-decoration: underline; }
 </div>
 
 <div class="footer">
-  Command Center · Taylor Boone · CEO Agent · Last updated Thursday, April 16, 2026 at 7:04 PM ET · <a href="https://damngooddawg.github.io/command-center/" style="color:var(--blue)">damngooddawg.github.io/command-center</a>
+  Command Center · Taylor Boone · Powered by CEO Agent · Friday, April 17, 2026 · 7:04 AM ET
 </div>
 
 </body>
