@@ -92,6 +92,7 @@ a:hover { text-decoration: underline; }
 .src-parameter { background: rgba(168,85,247,0.15); color: var(--purple); }
 .src-moneycheck { background: rgba(34,197,94,0.15); color: var(--green); }
 .src-tipranks { background: rgba(6,182,212,0.15); color: var(--cyan); }
+.src-rollingout { background: rgba(249,115,22,0.15); color: var(--orange); }
 .agent-row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--card-border); }
 .agent-row:last-child { border-bottom: none; }
 .agent-icon { width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; margin-right: 10px; flex-shrink: 0; }
@@ -176,6 +177,7 @@ a:hover { text-decoration: underline; }
 .src-dawgpost { background: rgba(186,12,47,0.15); color: var(--accent-light); }
 .src-dawgsdigest { background: rgba(186,12,47,0.15); color: var(--accent-light); }
 .src-espn { background: rgba(239,68,68,0.15); color: var(--red); }
+.src-atlnews { background: rgba(168,85,247,0.15); color: var(--purple); }
 .meals-pipeline { display: flex; gap: 4px; margin-bottom: 14px; align-items: center; }
 .pipeline-step { flex: 1; height: 4px; border-radius: 4px; background: var(--card-border); }
 .pipeline-step.done { background: var(--green); }
@@ -216,8 +218,8 @@ a:hover { text-decoration: underline; }
   <div class="header-inner">
     <h1><span class="dot"></span> Command Center</h1>
     <div class="header-meta">
-      <div>Refreshed: Thursday, April 23, 2026 · 7:04 PM ET</div>
-      <div>Next refresh: Friday, April 24 · 7:00 AM ET</div>
+      <div>Refreshed: Friday, April 24, 2026 · 11:04 AM ET</div>
+      <div>Next refresh: Friday, April 24 · 1:00 PM ET</div>
     </div>
   </div>
 </div>
@@ -226,15 +228,15 @@ a:hover { text-decoration: underline; }
 <div class="action-bar">
   <div class="action-chip">
     <span class="chip-dot" style="background:var(--red)"></span>
-    🍽️ Pick your 4 meals for Apr 23 week — still no reply (34h)
+    🍽️ Pick your 4 meals for Apr 23 week — still no reply (50h)
   </div>
   <div class="action-chip">
     <span class="chip-dot" style="background:var(--red)"></span>
-    🌍 Situation Monitor offline — server + logs both dark
+    🌍 Situation Monitor still offline — needs restart (7 days)
   </div>
   <div class="action-chip">
     <span class="chip-dot" style="background:var(--red)"></span>
-    💊 Pay &amp; schedule Rx — 9 Pharmacy Norcross
+    🏈 NFL Draft Day 2 TONIGHT — CJ Allen &amp; Miller top of board
   </div>
   <div class="action-chip">
     <span class="chip-dot" style="background:var(--yellow)"></span>
@@ -242,15 +244,15 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="action-chip">
     <span class="chip-dot" style="background:var(--yellow)"></span>
-    🏫 Jackrabbit tuition posts 4/25 — submit absences
+    🏫 Jackrabbit tuition posts TOMORROW — submit absences
   </div>
   <div class="action-chip">
     <span class="chip-dot" style="background:var(--green)"></span>
-    🎙️ Dawgs Digest podcast (Run #67) delivered to Drive
+    🐾 Freeling #19 to Panthers — first Dawg off the board
   </div>
   <div class="action-chip">
     <span class="chip-dot" style="background:var(--green)"></span>
-    🏈 NFL Draft TONIGHT — Freeling &amp; Allen projected Rd 1
+    📈 $CRM $173.30 · $25B buyback authorized Apr 22
   </div>
 </div>
 
@@ -267,7 +269,7 @@ a:hover { text-decoration: underline; }
       <div class="agent-icon" style="background:rgba(186,12,47,0.15)">🐾</div>
       <div class="agent-info">
         <div class="agent-name">UGA Forum Agent</div>
-        <div class="agent-detail">Today 11:04 AM — scan #69 complete (r/cfb, ON3 Dawg Walk, TalknDawgs). Deliver #67 + podcast ✅ at 9:10 AM. Dawgvent skipped (API 529).</div>
+        <div class="agent-detail">Scan + deliver + postmortem loop healthy. Last deliver Apr 23 9:10 AM (Digest #67, podcast 13.8 MB). Dawgvent still skipping on 529.</div>
       </div>
       <div class="status-dot status-green"></div>
     </div>
@@ -276,7 +278,7 @@ a:hover { text-decoration: underline; }
       <div class="agent-icon" style="background:rgba(234,179,8,0.15)">🍽️</div>
       <div class="agent-info">
         <div class="agent-name">Meal Planning</div>
-        <div class="agent-detail">Apr 22 9:06 AM — proposal sent for Apr 23 week. Awaiting picks for 34h. Next proposal Wed Apr 29 9:05 AM.</div>
+        <div class="agent-detail">Apr 22 9:06 AM — proposal sent for Apr 23 week. Awaiting picks for 50h. Next proposal Wed Apr 29 9:05 AM.</div>
       </div>
       <div class="status-dot status-yellow"></div>
     </div>
@@ -285,7 +287,7 @@ a:hover { text-decoration: underline; }
       <div class="agent-icon" style="background:rgba(85,85,85,0.15)">🛒</div>
       <div class="agent-info">
         <div class="agent-name">Kroger Cart</div>
-        <div class="agent-detail">Dormant — last cart built Apr 15 for Apr 16 week. Waiting on meal picks to arm.</div>
+        <div class="agent-detail">Dormant — last cart built Apr 15 for Apr 16 week. Armed to run once meal picks land.</div>
       </div>
       <div class="status-dot status-gray"></div>
     </div>
@@ -294,7 +296,7 @@ a:hover { text-decoration: underline; }
       <div class="agent-icon" style="background:rgba(239,68,68,0.15)">🌍</div>
       <div class="agent-info">
         <div class="agent-name">Situation Monitor</div>
-        <div class="agent-detail">Offline — /api/brief timed out, no launchd or geoint.log activity. Last manual brief Apr 17 2:10 PM. Needs restart.</div>
+        <div class="agent-detail">Offline — /api/brief dark, launchd.log + geoint.log both missing. Last brief Apr 17 2:10 PM. Server has been down 7 days.</div>
       </div>
       <div class="status-dot status-red"></div>
     </div>
@@ -303,7 +305,7 @@ a:hover { text-decoration: underline; }
       <div class="agent-icon" style="background:rgba(34,197,94,0.15)">🎙️</div>
       <div class="agent-info">
         <div class="agent-name">Podcast Pipeline</div>
-        <div class="agent-detail">Today 9:10 AM — 48 TTS chunks (Brasky/Buttons) → 13.8 MB MP3, uploaded to Drive, notification sent.</div>
+        <div class="agent-detail">Apr 23 9:10 AM — 48 TTS chunks (Brasky/Buttons) → 13.8 MB MP3, Drive uploaded, notification sent.</div>
       </div>
       <div class="status-dot status-green"></div>
     </div>
@@ -312,7 +314,7 @@ a:hover { text-decoration: underline; }
       <div class="agent-icon" style="background:rgba(59,130,246,0.15)">📅</div>
       <div class="agent-info">
         <div class="agent-name">Meal Proposal</div>
-        <div class="agent-detail">Yesterday 9:06 AM — 8 options emailed (4 bank + 4 web). Next run Wed Apr 29 9:05 AM ET.</div>
+        <div class="agent-detail">Wed Apr 22 9:06 AM — 8 options emailed (4 bank + 4 web). Next run Wed Apr 29 9:05 AM ET.</div>
       </div>
       <div class="status-dot status-green"></div>
     </div>
@@ -327,7 +329,7 @@ a:hover { text-decoration: underline; }
 
     <div class="situation-offline" style="margin-bottom:12px">
       <span style="color:var(--yellow)">⚠️</span>
-      <span>Gmail MCP not authenticated this run. Showing last-known action items from 5:04 PM refresh. Reconnect in Cowork to restore live inbox.</span>
+      <span>Gmail MCP still not authenticated — auth has been dark since the Apr 23 5:04 PM poll. Reconnect in Cowork to restore live inbox. Action items below are last-known state.</span>
     </div>
 
     <div class="email-section-label email-section-action">🔴 Action Required (4 open)</div>
@@ -336,9 +338,18 @@ a:hover { text-decoration: underline; }
       <div class="email-priority" style="background:var(--red)"></div>
       <div class="email-content">
         <div class="email-subject">Meal Proposal: Pick 4 for Apr 23 week</div>
-        <div class="email-preview">From Meal Planning Agent — reply with the 4 you want so Kroger cart can arm</div>
+        <div class="email-preview">From Meal Planning Agent — 50h overdue. Reply so Kroger cart can arm for weekend.</div>
       </div>
       <div class="email-time">Apr 22</div>
+    </div>
+
+    <div class="email-item">
+      <div class="email-priority" style="background:var(--red)"></div>
+      <div class="email-content">
+        <div class="email-subject">Jackrabbit — tuition posts TOMORROW (Apr 25)</div>
+        <div class="email-preview">Auto-bill on Saturday; submit absences / review charges today</div>
+      </div>
+      <div class="email-time">Apr 21</div>
     </div>
 
     <div class="email-item">
@@ -351,15 +362,6 @@ a:hover { text-decoration: underline; }
     </div>
 
     <div class="email-item">
-      <div class="email-priority" style="background:var(--red)"></div>
-      <div class="email-content">
-        <div class="email-subject">Jackrabbit — tuition posts Apr 25</div>
-        <div class="email-preview">Submit absences / review charges before auto-bill on Saturday</div>
-      </div>
-      <div class="email-time">Apr 21</div>
-    </div>
-
-    <div class="email-item">
       <div class="email-priority" style="background:var(--yellow)"></div>
       <div class="email-content">
         <div class="email-subject">Kroger #435 — Epps Bridge Rd: Rx ready</div>
@@ -368,7 +370,7 @@ a:hover { text-decoration: underline; }
       <div class="email-time">Apr 21</div>
     </div>
 
-    <div class="email-section-label email-section-fyi">📬 FYI (≈26 from last poll)</div>
+    <div class="email-section-label email-section-fyi">📬 FYI (last-known snapshot)</div>
 
     <div class="email-item">
       <div class="email-priority" style="background:var(--text-muted)"></div>
@@ -411,65 +413,66 @@ a:hover { text-decoration: underline; }
 
     <div class="weather-current">
       <div>
-        <div class="weather-temp">78°</div>
-        <div class="weather-desc">Overcast · Feels like 74°</div>
+        <div class="weather-temp">54°</div>
+        <div class="weather-desc">Clear · Feels like 52°</div>
       </div>
     </div>
 
     <div class="weather-details">
-      <span>💨 Wind: 4 mph S</span>
-      <span>🌡️ High 83° / Low 52°</span>
-      <span>🌧️ Rain: 0%</span>
+      <span>💨 Wind: 3 mph W</span>
+      <span>🌡️ High 81° / Low 54°</span>
+      <span>🌧️ Rain: 0.00 in</span>
+      <span>📍 33.93°N 83.58°W · 267 m</span>
     </div>
 
     <div class="forecast-row">
-      <div class="forecast-day">Thu</div>
-      <div class="forecast-icon">☁️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:0;width:100%"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">83°</span> <span class="forecast-lo">52°</span></div>
-      <div class="forecast-rain">0%</div>
-    </div>
-    <div class="forecast-row">
       <div class="forecast-day">Fri</div>
-      <div class="forecast-icon">☁️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:6%;width:85%"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">81°</span> <span class="forecast-lo">55°</span></div>
-      <div class="forecast-rain">4%</div>
+      <div class="forecast-icon">⛅</div>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:10%;width:85%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">81°</span> <span class="forecast-lo">54°</span></div>
+      <div class="forecast-rain">5%</div>
     </div>
     <div class="forecast-row">
       <div class="forecast-day">Sat</div>
-      <div class="forecast-icon">🌦️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:10%;width:72%"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">80°</span> <span class="forecast-lo">57°</span></div>
-      <div class="forecast-rain">67%</div>
+      <div class="forecast-icon">🌧️</div>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:14%;width:72%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">77°</span> <span class="forecast-lo">57°</span></div>
+      <div class="forecast-rain">70%</div>
     </div>
     <div class="forecast-row">
       <div class="forecast-day">Sun</div>
-      <div class="forecast-icon">☁️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:8%;width:80%"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">81°</span> <span class="forecast-lo">55°</span></div>
-      <div class="forecast-rain">37%</div>
+      <div class="forecast-icon">🌦️</div>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:10%;width:85%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">81°</span> <span class="forecast-lo">56°</span></div>
+      <div class="forecast-rain">42%</div>
     </div>
     <div class="forecast-row">
       <div class="forecast-day">Mon</div>
-      <div class="forecast-icon">☁️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:14%;width:64%"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">76°</span> <span class="forecast-lo">57°</span></div>
-      <div class="forecast-rain">12%</div>
+      <div class="forecast-icon">⛅</div>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:8%;width:78%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">77°</span> <span class="forecast-lo">52°</span></div>
+      <div class="forecast-rain">8%</div>
     </div>
     <div class="forecast-row">
       <div class="forecast-day">Tue</div>
       <div class="forecast-icon">🌧️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:28%;width:42%"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">68°</span> <span class="forecast-lo">56°</span></div>
-      <div class="forecast-rain">55%</div>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:22%;width:55%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">75°</span> <span class="forecast-lo">53°</span></div>
+      <div class="forecast-rain">46%</div>
     </div>
     <div class="forecast-row">
       <div class="forecast-day">Wed</div>
       <div class="forecast-icon">🌦️</div>
-      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:10%;width:75%"></div></div>
-      <div class="forecast-temps"><span class="forecast-hi">79°</span> <span class="forecast-lo">57°</span></div>
-      <div class="forecast-rain">32%</div>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:28%;width:42%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">70°</span> <span class="forecast-lo">60°</span></div>
+      <div class="forecast-rain">36%</div>
+    </div>
+    <div class="forecast-row">
+      <div class="forecast-day">Thu</div>
+      <div class="forecast-icon">☀️</div>
+      <div class="forecast-bar"><div class="forecast-bar-fill" style="left:10%;width:82%"></div></div>
+      <div class="forecast-temps"><span class="forecast-hi">79°</span> <span class="forecast-lo">52°</span></div>
+      <div class="forecast-rain">26%</div>
     </div>
   </div>
 
@@ -482,36 +485,36 @@ a:hover { text-decoration: underline; }
 
     <div class="situation-offline">
       <span>⚪</span>
-      <span>Situation Monitor offline — no live brief or event count available. Last successful brief: Apr 17.</span>
+      <span>Situation Monitor still offline — no live brief or event count available. Last successful brief: Apr 17 (7d stale).</span>
     </div>
 
     <div class="world-item">
       <div class="world-headline"><a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-trump-ceasefire-hormuz-attack-peace-talks-israel-rcna341361">Trump extends Iran ceasefire indefinitely at Pakistan's request</a></div>
-      <div class="world-summary">Two-week truce was set to expire tonight; Tehran has rejected the second round of Pakistan-hosted peace talks as "definitive." Oil markets remain jumpy.</div>
-      <div class="world-meta"><span class="world-source src-nbc">NBC</span> Apr 23 · Day 55 of the conflict</div>
+      <div class="world-summary">Indefinite extension announced yesterday, but U.S. port blockade remains in place and Iran has doubled down on collecting transit tolls through Hormuz — reportedly generating ~$20M/day from oil tankers.</div>
+      <div class="world-meta"><span class="world-source src-nbc">NBC</span> Apr 23 · Day 56 of the conflict</div>
     </div>
 
     <div class="world-item">
       <div class="world-headline"><a href="https://www.aljazeera.com/news/2026/4/23/iran-war-whats-happening-on-day-55-after-trump-extended-ceasefire">Iran fires on 3 ships in Strait of Hormuz, seizes 2 containers</a></div>
-      <div class="world-summary">Liberia-flagged Epaminondas and Panama-flagged MSC Francesca taken in retaliation for the U.S. naval blockade. U.S. has not lifted port blockade despite ceasefire.</div>
+      <div class="world-summary">Liberia-flagged Epaminondas and Panama-flagged MSC Francesca taken in retaliation for the U.S. naval blockade. Third ship escaped. Brent crude back above $105/bbl as supply-risk premium returns.</div>
       <div class="world-meta"><span class="world-source src-aljazeera">Al Jazeera</span> Apr 23</div>
     </div>
 
     <div class="world-item">
-      <div class="world-headline"><a href="https://www.swissuniversity.com/post/geopolitical-signals-information-asymmetry-and-oil-market-integrity-lessons-from-the-april-2026-s">Brent crude back above $100/bbl as Hormuz disrupts flows</a></div>
-      <div class="world-summary">Renewed supply-risk premium pushed Brent to the psychological $100 level Thursday morning. Iran's new transit tolls reportedly generating ~$20M/day.</div>
-      <div class="world-meta"><span class="world-source src-bloomberg">Markets</span> Apr 23</div>
+      <div class="world-headline"><a href="https://www.reuters.com/world/europe/eu-ukraine-loan-2026-04-23/">EU approves $106B two-year loan package for Ukraine</a></div>
+      <div class="world-summary">Deal ends months of political deadlock; covers economic and military needs through 2028. Funded in part by frozen Russian sovereign assets. Hungary abstained.</div>
+      <div class="world-meta"><span class="world-source src-reuters">Reuters</span> Apr 23</div>
     </div>
 
     <div class="world-item">
-      <div class="world-headline"><a href="https://www.justsecurity.org/136924/early-edition-april-23-2026/">Israel strikes in South Lebanon kill journalist, wound another</a></div>
-      <div class="world-summary">Lebanese health ministry says IDF targeted reporters in Tayri. Beirut faces growing pressure on Hezbollah disarmament timeline.</div>
-      <div class="world-meta"><span class="world-source src-justsecurity">Just Security</span> Apr 23</div>
+      <div class="world-headline"><a href="https://www.oneindia.com/india/crude-oil-rates-today-april-24-2026-brent-crude-crosses-105-per-barrel-check-latest-prices-of-w-8067951.html">Brent crude crosses $105/bbl; WTI at $96</a></div>
+      <div class="world-summary">Psychological $105 breached overnight as Hormuz seizures reignite supply-risk premium. Analysts say $20M/day Iranian transit tolls are structurally repricing Gulf shipping insurance.</div>
+      <div class="world-meta"><span class="world-source src-bloomberg">Markets</span> Apr 24</div>
     </div>
 
     <div class="world-item">
-      <div class="world-headline"><a href="https://www.imf.org/-/media/files/publications/weo/2026/april/english/ch1.pdf">IMF April WEO: "Global economy tested again" by trade &amp; energy shocks</a></div>
-      <div class="world-summary">Fund flags slowing growth, sticky services inflation, and widening divergence between AI-driven U.S. tech earnings and the rest of the G20.</div>
+      <div class="world-headline"><a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026">IMF April WEO: "Global economy in the shadow of war"</a></div>
+      <div class="world-summary">Fund flags slowing growth, sticky services inflation, and widening divergence between AI-driven U.S. tech earnings and the rest of the G20. Trump admin also cracking down on Chinese exploitation of U.S. AI models.</div>
       <div class="world-meta"><span class="world-source src-imf">IMF</span> Apr 2026 WEO</div>
     </div>
   </div>
@@ -523,37 +526,37 @@ a:hover { text-decoration: underline; }
         <div class="uga-logo">UGA</div>
         <span class="card-title" style="margin:0">Bulldog Nation</span>
       </div>
-      <span class="card-badge badge-red">Draft Night</span>
+      <span class="card-badge badge-red">Draft Day 2</span>
     </div>
 
     <div class="news-item">
-      <div class="news-headline"><a href="https://sports.yahoo.com/articles/nfl-draft-2026-closer-look-123000016.html">NFL Draft Round 1 TONIGHT — Freeling &amp; Allen projected picks</a></div>
-      <div class="news-summary">OT Earnest Freeling mocked in #11 range; DL Mykel Allen climbing mocks into the mid-20s. Multiple Dawgs expected to hear names through Day 2.</div>
-      <div class="news-meta"><span class="news-source src-yahoo">Yahoo Sports</span> Apr 23</div>
+      <div class="news-headline"><a href="https://www.atlantanewsfirst.com/2026/04/24/uga-tracker-heres-which-bulldogs-got-selected-2026-nfl-draft/">Monroe Freeling #19 to Carolina Panthers — first Dawg off the board</a></div>
+      <div class="news-summary">OT Monroe Freeling became the only first-round Dawg after going 19th overall to Carolina. Day 2 tonight — CJ Allen (LB) and Christen Miller (DT) are the next UGA names on ESPN's best-available top-50.</div>
+      <div class="news-meta"><span class="news-source src-atlnews">Atlanta News First</span> Apr 24</div>
     </div>
 
     <div class="news-item">
-      <div class="news-headline"><a href="https://www.dawgnation.com/programs/dawgnation-daily-podcast/two-former-5-stars-who-could-step-up-uga-2026/FXIWNTQT3REKHKDHTKKJXKPP4I/">Spring spotlight: former 5-stars Prothro &amp; Gibson primed for leap</a></div>
-      <div class="news-summary">Kirby Smart pleased with OL progress from Jah Jackson and Zykie Helton; Kaiden Prothro and Isaiah Gibson described as turning a corner this spring.</div>
-      <div class="news-meta"><span class="news-source src-dawgnation">DawgNation</span> Apr 22</div>
+      <div class="news-headline"><a href="https://sports.yahoo.com/articles/georgia-bulldogs-2026-nfl-draft-200001147.html">15 Dawgs projected across the full draft board</a></div>
+      <div class="news-summary">RBs McCray + Cash Jones; WRs Branch, Young, Bell, Noah Thomas; TE Delp; OL Morris; DL Miller; LB Allen; DBs Everette + JaCorey Thomas; specialists Gardner + Thorson all in play.</div>
+      <div class="news-meta"><span class="news-source src-yahoo">Yahoo Sports</span> Apr 24</div>
     </div>
 
     <div class="news-item">
-      <div class="news-headline"><a href="https://dawgpost.com/s/8144/insider-georgia-bulldog-recruiting-notes-from-uga-footballs-g-day-scrimmage">G-Day recruiting: 4-star LB Joakim Gouda and IOL Carter Jones in attendance</a></div>
-      <div class="news-summary">Among confirmed visitors were McEachern LB Gouda (national #15) and Virginia IOL Carter Jones (national #21). Dawgs in strong position on both.</div>
-      <div class="news-meta"><span class="news-source src-dawgpost">Dawg Post</span> Apr 19</div>
+      <div class="news-headline"><a href="https://www.ajc.com/sports/2026/04/georgia-football-nfl-draft-live-updates-what-to-know-entering-first-round/">Dawgs expect "busy Day 2" Friday night</a></div>
+      <div class="news-summary">Only two Bulldogs went in Round 1 (vs three in 2025), but AJC reports Athens expects a flurry in Rounds 2–3 tonight. Final 2026 projections had 5–6 picks across Days 1–2.</div>
+      <div class="news-meta"><span class="news-source src-ajc">AJC</span> Apr 24</div>
     </div>
 
     <div class="news-item">
       <div class="news-headline">Dawgs Digest #67: Reddell breakout, backup QB race crystalizing</div>
       <div class="news-summary">ON3 Dawg Walk sources say Millender is "the only one who impressed me from first throw to last" in the backup QB race. TE room depth remains a storyline (Luckie 4th in talent but "gotta have it" player).</div>
-      <div class="news-meta"><span class="news-source src-dawgsdigest">Dawgs Digest</span> Today 9:10 AM</div>
+      <div class="news-meta"><span class="news-source src-dawgsdigest">Dawgs Digest</span> Yesterday 9:10 AM</div>
     </div>
 
     <div class="news-item">
-      <div class="news-headline"><a href="https://247sports.com/college/georgia/season/2026-football/commits/">2026 recruiting class ranked — Kailib Dillard in final 3, AJ Randle finalist</a></div>
-      <div class="news-summary">Class-of-26 board coming together; Brayton Feister OV set, Miller Westerfield OV locked for June 5.</div>
-      <div class="news-meta"><span class="news-source src-247">247Sports</span> Apr 22</div>
+      <div class="news-headline"><a href="https://www.on3.com/sites/uga-sports/news/bulldogs-mock-draft-tracker-final-2026/">On3 Final Mock Tracker — where UGA remaining prospects land</a></div>
+      <div class="news-summary">Consensus has CJ Allen in late-Rd-2 range, Miller Rd 3, Everette Day 3, Branch a Round 4–5 upside bet. Full tracker updates live through Saturday's Round 7.</div>
+      <div class="news-meta"><span class="news-source src-on3">On3</span> Apr 24</div>
     </div>
   </div>
 
@@ -561,7 +564,7 @@ a:hover { text-decoration: underline; }
   <div class="card card-meals">
     <div class="card-header">
       <span class="card-title">Meal Plan — Week of Apr 23</span>
-      <span class="card-badge badge-yellow">Stalled · awaiting picks</span>
+      <span class="card-badge badge-yellow">Stalled · awaiting picks (50h)</span>
     </div>
 
     <div class="pipeline-label">
@@ -576,7 +579,7 @@ a:hover { text-decoration: underline; }
     </div>
 
     <div style="font-size:0.78rem; color:var(--text-muted); margin-bottom:10px;">
-      Proposal emailed Wed Apr 22 9:06 AM — 8 options (4 from recipe bank, 4 web-sourced). Stalled at 34h waiting on Taylor's reply with his 4 picks. Next proposal fires Wed Apr 29 at 9:05 AM ET.
+      Proposal emailed Wed Apr 22 9:06 AM — 8 options (4 from recipe bank, 4 web-sourced). Stalled at 50h waiting on Taylor's reply with his 4 picks. Next proposal fires Wed Apr 29 at 9:05 AM ET. If picks don't land by Sunday, this week will roll over dormant.
     </div>
 
     <div class="meal-item">
@@ -601,20 +604,20 @@ a:hover { text-decoration: underline; }
 
     <div class="suggest-grid">
       <div class="suggest-card">
-        <div class="suggest-title">🚨 Situation Monitor watchdog</div>
-        <div class="suggest-desc">Scheduled task that hits /api/brief every 4 hours. If 2 consecutive failures, email Taylor step-by-step restart instructions (launchctl kickstart, log locations). Pair with existing cookie-refresh reminder.</div>
+        <div class="suggest-title">🚨 Situation Monitor auto-restart</div>
+        <div class="suggest-desc">Server has been offline 7 days now. Build a launchd watchdog that, on two consecutive /api/brief failures, runs <code>launchctl kickstart</code> on the geoint service and notifies Taylor only if the restart itself fails. Moves Situation Monitor from "needs a human" to self-healing.</div>
         <span class="suggest-effort">~45 min</span>
       </div>
 
       <div class="suggest-card">
-        <div class="suggest-title">📩 Meal-pick nudge after 24h</div>
-        <div class="suggest-desc">If no reply to the proposal within 24h, send a lightweight SMS/email nudge with the 8 options trimmed to titles + a one-tap reply template. Currently the dashboard just shows "awaiting" — nudge converts passive waiting into action.</div>
+        <div class="suggest-title">📩 Meal-pick SMS nudge at 24h + 48h</div>
+        <div class="suggest-desc">50h in and still stalled — this is now the third week running the proposal outlives Taylor's inbox attention. Two-step SMS nudge (24h: titles only, 48h: "reply 1/3/5/7" quick-pick) would kill the stall loop for good.</div>
         <span class="suggest-effort">~1 hr</span>
       </div>
 
       <div class="suggest-card">
-        <div class="suggest-title">🔌 Gmail connector health check</div>
-        <div class="suggest-desc">Weekly scheduled task that calls gmail_search_threads with a trivial query and, on auth failure, emails/SMSes Taylor with the re-connect deep-link. Would have caught today's silent auth drop before it hit the CEO refresh.</div>
+        <div class="suggest-title">🔌 Gmail connector health probe</div>
+        <div class="suggest-desc">Auth has been dark across two CEO refreshes in a row. Daily 6 AM scheduled task hits gmail_search_threads with a trivial query; on auth failure, SMS + email the reconnect deep-link. Would've caught this drop ~18h earlier.</div>
         <span class="suggest-effort">~30 min</span>
       </div>
     </div>
@@ -624,20 +627,36 @@ a:hover { text-decoration: underline; }
   <div class="card card-activity">
     <div class="card-header">
       <span class="card-title">Activity Log — Last 24h</span>
-      <span class="card-badge badge-green">13 runs</span>
+      <span class="card-badge badge-green">11 runs</span>
     </div>
 
     <div class="activity-list">
       <div class="activity-item">
-        <div class="activity-time">7:04 PM</div>
+        <div class="activity-time">11:04 AM</div>
         <div class="activity-icon">✅</div>
         <div class="activity-content">
           <div class="activity-name">CEO Agent Refresh (current)</div>
-          <div class="activity-detail">This run — dashboard rebuilt + pushed to GitHub Pages</div>
+          <div class="activity-detail">This run — dashboard rebuilt and pushed to GitHub Pages</div>
         </div>
       </div>
       <div class="activity-item">
-        <div class="activity-time">1:14 PM</div>
+        <div class="activity-time">Thu 7:09 PM</div>
+        <div class="activity-icon">✅</div>
+        <div class="activity-content">
+          <div class="activity-name">Deploy dashboard</div>
+          <div class="activity-detail">Evening push of index.html → DamnGoodDawg/command-center</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-time">Thu 7:04 PM</div>
+        <div class="activity-icon">✅</div>
+        <div class="activity-content">
+          <div class="activity-name">CEO Agent Refresh</div>
+          <div class="activity-detail">Evening refresh cycle — Gmail auth noted as dark</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-time">Thu 1:14 PM</div>
         <div class="activity-icon">✅</div>
         <div class="activity-content">
           <div class="activity-name">Deploy dashboard</div>
@@ -645,23 +664,23 @@ a:hover { text-decoration: underline; }
         </div>
       </div>
       <div class="activity-item">
-        <div class="activity-time">1:04 PM</div>
+        <div class="activity-time">Thu 1:04 PM</div>
         <div class="activity-icon">✅</div>
         <div class="activity-content">
           <div class="activity-name">CEO Agent Refresh</div>
-          <div class="activity-detail">Midday refresh cycle — 5:04 PM ET snapshot published</div>
+          <div class="activity-detail">Midday refresh cycle</div>
         </div>
       </div>
       <div class="activity-item">
-        <div class="activity-time">11:04 AM</div>
-        <div class="activity-icon">✅</div>
+        <div class="activity-time">Thu 11:04 AM</div>
+        <div class="activity-icon">⚠️</div>
         <div class="activity-content">
           <div class="activity-name">Dawgs Digest scan #69</div>
           <div class="activity-detail">r/cfb ✅, ON3 Dawg Walk ✅, TalknDawgs ✅, Dawgvent ❌ (API 529). 50.7 KB HTML written.</div>
         </div>
       </div>
       <div class="activity-item">
-        <div class="activity-time">9:10 AM</div>
+        <div class="activity-time">Thu 9:10 AM</div>
         <div class="activity-icon">✅</div>
         <div class="activity-content">
           <div class="activity-name">Dawgs Digest deliver + podcast #67</div>
@@ -669,7 +688,7 @@ a:hover { text-decoration: underline; }
         </div>
       </div>
       <div class="activity-item">
-        <div class="activity-time">7:14 AM</div>
+        <div class="activity-time">Thu 7:14 AM</div>
         <div class="activity-icon">✅</div>
         <div class="activity-content">
           <div class="activity-name">Deploy dashboard</div>
@@ -677,7 +696,7 @@ a:hover { text-decoration: underline; }
         </div>
       </div>
       <div class="activity-item">
-        <div class="activity-time">7:04 AM</div>
+        <div class="activity-time">Thu 7:04 AM</div>
         <div class="activity-icon">✅</div>
         <div class="activity-content">
           <div class="activity-name">CEO Agent Refresh</div>
@@ -685,7 +704,7 @@ a:hover { text-decoration: underline; }
         </div>
       </div>
       <div class="activity-item">
-        <div class="activity-time">6:38 AM</div>
+        <div class="activity-time">Thu 6:38 AM</div>
         <div class="activity-icon">⚠️</div>
         <div class="activity-content">
           <div class="activity-name">Dawgs Digest postmortem</div>
@@ -693,43 +712,11 @@ a:hover { text-decoration: underline; }
         </div>
       </div>
       <div class="activity-item">
-        <div class="activity-time">4:09 AM</div>
+        <div class="activity-time">Thu 4:09 AM</div>
         <div class="activity-icon">✅</div>
         <div class="activity-content">
           <div class="activity-name">Dawgs Digest scan (overnight)</div>
           <div class="activity-detail">Nightly scan run — fed into 9:10 AM delivery</div>
-        </div>
-      </div>
-      <div class="activity-item">
-        <div class="activity-time">Wed 7:04 PM</div>
-        <div class="activity-icon">✅</div>
-        <div class="activity-content">
-          <div class="activity-name">CEO Agent Refresh</div>
-          <div class="activity-detail">Evening cycle — Apr 22</div>
-        </div>
-      </div>
-      <div class="activity-item">
-        <div class="activity-time">Wed 1:14 PM</div>
-        <div class="activity-icon">✅</div>
-        <div class="activity-content">
-          <div class="activity-name">Deploy dashboard</div>
-          <div class="activity-detail">Midday push — Apr 22</div>
-        </div>
-      </div>
-      <div class="activity-item">
-        <div class="activity-time">Wed 9:06 AM</div>
-        <div class="activity-icon">✅</div>
-        <div class="activity-content">
-          <div class="activity-name">Generate proposal</div>
-          <div class="activity-detail">8 meal options emailed for Apr 23 week — 4 bank + 4 web</div>
-        </div>
-      </div>
-      <div class="activity-item">
-        <div class="activity-time">Wed 7:04 AM</div>
-        <div class="activity-icon">✅</div>
-        <div class="activity-content">
-          <div class="activity-name">CEO Agent Refresh</div>
-          <div class="activity-detail">Morning cycle — Apr 22</div>
         </div>
       </div>
     </div>
@@ -739,53 +726,60 @@ a:hover { text-decoration: underline; }
   <div class="card card-crm">
     <div class="card-header">
       <span class="card-title">$CRM — Salesforce</span>
-      <span class="card-badge badge-green">Buy consensus</span>
+      <span class="card-badge badge-green">Moderate Buy</span>
     </div>
 
     <div class="stock-row">
-      <div class="stock-price">$189.80</div>
-      <div class="stock-change" style="color:var(--green)">+2.1% Apr 20</div>
+      <div class="stock-price">$173.30</div>
+      <div class="stock-change" style="color:var(--red)">−8.69% Apr 23</div>
       <div class="stock-change" style="color:var(--red)">−30% YTD</div>
+      <div class="stock-change" style="color:var(--green)">+0.88% pre-mkt</div>
     </div>
 
     <div class="stock-details">
-      <span>📊 52W range: $163.52 – $296.05</span>
-      <span>🎯 Target: $278.74 (+47%)</span>
-      <span>🧮 Low $194 · High $405</span>
-      <span>👥 28 Buy / 8 Hold / 1 Sell (37 analysts)</span>
-      <span>💡 Agentforce ARR ≈ $2.9B (200% YoY, 29k deals)</span>
+      <span>📊 Pre-market Apr 24: $174.82</span>
+      <span>🎯 Target: $278.74 avg (+61%)</span>
+      <span>🧮 Range: $190 – $475 · Median $255</span>
+      <span>👥 26 Buy / 11 Hold / 1 Sell + 1 Strong Buy (39 analysts, MarketBeat)</span>
+      <span>💸 $25B buyback authorized Apr 22 · dividend raised to $0.44</span>
+      <span>🤖 Agentforce ARR $800M · +169% YoY · 29k deals closed</span>
     </div>
 
-    <div style="font-size:0.7rem; color:var(--text-muted); margin-bottom:2px;">Sentiment of recent analyst coverage:</div>
+    <div style="font-size:0.7rem; color:var(--text-muted); margin-bottom:2px;">Sentiment of recent analyst coverage (tone-weighted, not vote-weighted):</div>
     <div class="sentiment-bar">
-      <div style="width:52%; background:var(--green)"></div>
-      <div style="width:36%; background:var(--yellow)"></div>
-      <div style="width:12%; background:var(--red)"></div>
+      <div style="width:48%; background:var(--green)"></div>
+      <div style="width:38%; background:var(--yellow)"></div>
+      <div style="width:14%; background:var(--red)"></div>
     </div>
     <div class="sentiment-labels">
-      <span>Bullish (valuation reset + Agentforce)</span>
-      <span>Neutral (show-me on growth)</span>
-      <span>Bearish (margin + AI disruption)</span>
+      <span>Bullish (valuation reset, Agentforce accel)</span>
+      <span>Neutral (AI disruption risk)</span>
+      <span>Bearish (enterprise IT compression)</span>
+    </div>
+
+    <div class="analyst-item">
+      <div class="analyst-headline"><a href="https://seekingalpha.com/article/4893234-salesforce-stock-valuation-reset-ai-growth-low-debt-higher-fair-value-case">Salesforce Valuation Reset: AI Growth, Low Debt, And A Higher Fair Value Case</a></div>
+      <div class="analyst-meta"><span class="analyst-source src-seeking">Seeking Alpha</span> CRM trades at 14x non-GAAP P/E and 10x P/CF TTM — below utilities and staples multiples despite durable fundamentals. Author argues valuation has reset to "irrationally attractive" levels. <em>Tone: bullish.</em></div>
+    </div>
+
+    <div class="analyst-item">
+      <div class="analyst-headline"><a href="https://seekingalpha.com/article/4892610-salesforce-ai-is-a-true-acceleration-driver-not-a-hollow-rebrand">Salesforce: AI Is A True Acceleration Driver, Not A Hollow Rebrand</a></div>
+      <div class="analyst-meta"><span class="analyst-source src-seeking">Seeking Alpha</span> Agentforce ARR up 169% YoY to $800M; agentic actions +57% QoQ; 60% conversion rate from existing base. Author frames this as a genuine revenue-model transition, not AI cosplay. <em>Tone: bullish.</em></div>
+    </div>
+
+    <div class="analyst-item">
+      <div class="analyst-headline"><a href="https://rollingout.com/2026/04/23/salesforce-crm-stock-despite-25b-buyback/">Why Salesforce CRM stock is falling despite a $25B buyback</a></div>
+      <div class="analyst-meta"><span class="analyst-source src-rollingout">RollingOut</span> Shares dropped 8.69% on Apr 23 despite the $25B repurchase + dividend hike + Google Cloud AI partnership — renewed fears that agentic AI compresses seat-based SaaS revenue long-term. <em>Tone: bearish / cautious.</em></div>
+    </div>
+
+    <div class="analyst-item">
+      <div class="analyst-headline"><a href="https://www.marketbeat.com/stocks/NYSE/CRM/forecast/">MarketBeat consensus: Moderate Buy, $279.18 average target</a></div>
+      <div class="analyst-meta"><span class="analyst-source src-marketbeat">MarketBeat</span> 39 analysts; 26 Buy / 11 Hold / 1 Sell / 1 Strong Buy. Consensus target $279.18 implies ~61% upside from current. Dispersion reflects uncertainty on agentic-AI revenue durability. <em>Tone: constructive.</em></div>
     </div>
 
     <div class="analyst-item">
       <div class="analyst-headline"><a href="https://parameter.io/salesforce-crm-stock-drops-30-in-2026-as-analysts-target-38-rally-ahead/">Salesforce stock drops 30% in 2026 as analysts target 38% rally ahead</a></div>
-      <div class="analyst-meta"><span class="analyst-source src-parameter">Parameter</span> Consensus $261.45 target implies ~38% upside from current. Thesis: 2026 drawdown has overshot fundamentals; Agentforce ARR run rate is the coiled spring. <em>Tone: bullish.</em></div>
-    </div>
-
-    <div class="analyst-item">
-      <div class="analyst-headline"><a href="https://moneycheck.com/salesforce-crm-stock-plunges-30-in-2026-but-analysts-project-38-recovery-potential">CRM plunges 30% in 2026 — but 38% recovery potential seen</a></div>
-      <div class="analyst-meta"><span class="analyst-source src-moneycheck">MoneyCheck</span> Notes the gap vs. S&amp;P 500 (−5% YTD) as unusually wide. Investors split on whether Agentforce monetization outpaces margin pressure from AI-native entrants. <em>Tone: bullish-neutral.</em></div>
-    </div>
-
-    <div class="analyst-item">
-      <div class="analyst-headline"><a href="https://www.marketbeat.com/stocks/NYSE/CRM/forecast/">MarketBeat consensus: Buy, $278.74 average target, range $194–$405</a></div>
-      <div class="analyst-meta"><span class="analyst-source src-marketbeat">MarketBeat</span> 28 Buy / 8 Hold / 1 Sell across 37 analysts. Dispersion in targets reflects uncertainty on agentic-AI revenue durability vs. legacy seat expansion. <em>Tone: constructive, cautiously bullish.</em></div>
-    </div>
-
-    <div class="analyst-item">
-      <div class="analyst-headline"><a href="https://stockanalysis.com/stocks/crm/forecast/">StockAnalysis: average 1-yr target $278.74, +53% vs current</a></div>
-      <div class="analyst-meta"><span class="analyst-source src-stockanalysis">StockAnalysis</span> Notes both the valuation reset and the Agentforce deal velocity (~29,000 closed deals) as positive catalysts. Downside cases hinge on enterprise IT spend compression. <em>Tone: neutral/positive.</em></div>
+      <div class="analyst-meta"><span class="analyst-source src-parameter">Parameter</span> CRM YTD drawdown is unusually wide vs. S&amp;P 500 (−5% YTD). Median sell-side price target $255 implies ~47% upside. Coiled-spring setup if Agentforce conversion sticks. <em>Tone: bullish.</em></div>
     </div>
   </div>
 
